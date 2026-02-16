@@ -1,0 +1,26 @@
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: var(--space-10);
+}
+
+.tag {
+    padding: var(--space-4) var(--space-6);
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    border-radius: var(--radius-lg);
+    cursor: default;
+}
+
+.tagline {
+    margin-top: var(--space-10);
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.tagline strong {
+    color: var(--color-primary-light);
+}

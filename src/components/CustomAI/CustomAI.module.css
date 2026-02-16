@@ -1,0 +1,100 @@
+.timeline {
+    margin-top: var(--space-10);
+    position: relative;
+    max-width: 700px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--gradient-primary);
+    border-radius: 1px;
+    opacity: 0.2;
+}
+
+.timelineItem {
+    display: flex;
+    gap: 24px;
+    padding-bottom: 40px;
+    position: relative;
+}
+
+.timelineNumber {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    background: var(--gradient-primary);
+    font-size: 18px;
+    font-weight: 800;
+    color: #02040f;
+    position: relative;
+    z-index: 1;
+}
+
+.timelineContent h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+    color: var(--color-text-primary);
+}
+
+.timelineContent p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+}
+
+.highlight {
+    margin-top: var(--space-10);
+    display: flex;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.highlightCard {
+    background: var(--gradient-card);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    flex: 1;
+    min-width: 140px;
+    transition: var(--transition-base);
+}
+
+.highlightCard:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-5px);
+}
+
+.highlightCard h4 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+}
+
+.highlightCard p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 480px) {
+    .timeline::before {
+        left: 18px;
+    }
+
+    .timelineNumber {
+        width: 36px;
+        height: 36px;
+        font-size: var(--text-sm);
+    }
+}

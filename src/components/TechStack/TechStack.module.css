@@ -1,0 +1,86 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    margin-top: var(--space-10);
+}
+
+.card {
+    padding: var(--space-8);
+    text-align: center;
+}
+
+.cardIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-5);
+    border-radius: var(--radius-lg);
+    background: rgba(99, 102, 241, 0.05);
+    color: var(--color-primary-light);
+    transition: background var(--transition-base), transform var(--transition-base);
+}
+
+.card:hover .cardIcon {
+    background: rgba(99, 102, 241, 0.1);
+    transform: scale(1.1);
+}
+
+.cardName {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-10);
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-md);
+    background: rgba(0, 212, 170, 0.04);
+    border: 1px solid rgba(0, 212, 170, 0.1);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-secondary-dark);
+}
+
+.benefitDot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+    background: var(--color-secondary);
+    flex-shrink: 0;
+}
+
+.growthText {
+    margin-top: var(--space-8);
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .benefits {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         title: 'AWATAR9 — Designing AI That Delivers',
         description:
             'We build AI that works for you. Ready-made and custom AI solutions for real business challenges.',
-        url: 'https://saipraveenmolugu.github.io/Awatar9',
+        url: 'https://SrivalliKolluru.github.io/AWATAR9',
         siteName: 'AWATAR9',
         type: 'website',
     },

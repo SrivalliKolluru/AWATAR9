@@ -9,7 +9,7 @@ export const SITE = {
     tagline: 'Designing AI That Delivers',
     description:
         'At AWATAR9, we design smart AI agents for real business challenges. Ready-made and custom AI bots that think, act, and deliver results.',
-    url: 'https://saipraveenmolugu.github.io/Awatar9',
+    url: 'https://SrivalliKolluru.github.io/AWATAR9',
 } as const;
 
 export const NAV_LINKS = [

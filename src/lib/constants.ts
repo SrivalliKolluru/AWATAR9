@@ -18,7 +18,7 @@ export const NAV_LINKS = [
     { label: 'Custom AI', href: '#custom-ai' },
     { label: 'Technology', href: '#technology' },
     { label: 'Approach', href: '#approach' },
-    { label: 'Contact', href: '#contact' },
+
 ] as const;
 
 export interface BotCategory {

@@ -17,7 +17,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-    title: 'AWATAR9 — Designing AI That Delivers',
+    title: 'AWATAR9 — Designing AI That Deliverss',
     description:
         'At AWATAR9, we design smart AI agents for real business challenges. Ready-made and custom AI bots that think, act, and deliver results.',
     keywords: [

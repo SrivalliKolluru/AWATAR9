@@ -178,11 +178,10 @@ h6 {
 }
 
 .section-subtitle {
-  font-size: clamp(18px, 1.25vw, 22px);
+  font-size: clamp(16px, 1.1vw, 18px);
+  /* Slightly smaller for a more refined look */
   color: var(--color-text-secondary);
   line-height: 1.6;
-  max-width: 800px;
-  margin-inline: auto;
 }
 
 .gradient-text {

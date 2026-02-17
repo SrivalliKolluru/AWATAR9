@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-6);
-    margin-top: var(--space-10);
+    margin-top: var(--space-4);
 }
 
 .card {
@@ -38,7 +38,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-4);
-    margin-top: var(--space-10);
+    margin-top: var(--space-4);
 }
 
 .benefit {
@@ -63,7 +63,7 @@
 }
 
 .growthText {
-    margin-top: var(--space-8);
+    margin-top: var(--space-4);
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
     font-weight: 500;

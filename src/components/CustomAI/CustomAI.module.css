@@ -1,5 +1,5 @@
 .timeline {
-    margin-top: var(--space-6);
+    margin-top: var(--space-4);
     position: relative;
     max-width: 700px;
 }
@@ -53,7 +53,7 @@
 }
 
 .highlight {
-    margin-top: var(--space-10);
+    margin-top: var(--space-4);
     display: flex;
     gap: var(--space-6);
     flex-wrap: wrap;

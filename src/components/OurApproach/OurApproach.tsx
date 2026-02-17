@@ -10,7 +10,7 @@ export default function OurApproach() {
             <div className="section-label">✦ Our Process</div>
             <h2 className="section-title">Our Approach</h2>
             <p className="section-subtitle">
-                We follow a simple, proven process to deliver AI solutions that work.
+                We follow a simple, proven process to deliver AI solutions that work
             </p>
 
             <div className={styles.steps}>
@@ -23,9 +23,9 @@ export default function OurApproach() {
             </div>
 
             <p className={styles.tagline}>
-                No complexity. No confusion.
+                No complexity No confusion
                 <br />
-                <strong>Just results.</strong>
+                <strong>Just results</strong>
             </p>
         </SectionWrapper>
     );

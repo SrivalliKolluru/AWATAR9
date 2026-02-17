@@ -21,7 +21,7 @@ export default function TechStack() {
             <h2 className="section-title">Powered by Modern AI Technology</h2>
             <p className="section-subtitle">
                 All our solutions use the latest automation and AI platforms for maximum
-                performance and reliability.
+                performance and reliability
             </p>
 
             <div className={styles.grid}>
@@ -51,7 +51,7 @@ export default function TechStack() {
             </div>
 
             <p className={styles.growthText}>
-                Your system grows with your business.
+                Your system grows with your business
             </p>
         </SectionWrapper>
     );

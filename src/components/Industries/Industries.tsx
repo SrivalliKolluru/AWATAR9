@@ -10,7 +10,7 @@ export default function Industries() {
             <div className="section-label">✦ Industries</div>
             <h2 className="section-title">Who We Work With</h2>
             <p className="section-subtitle">
-                If you use data, processes, or people — AI can help you.
+                If you use data, processes, or people — AI can help you
             </p>
 
             <div className={styles.grid}>
@@ -22,7 +22,7 @@ export default function Industries() {
             </div>
 
             <p className={styles.tagline}>
-                From startups to enterprises — we build AI that fits <strong>your scale</strong>.
+                From startups to enterprises — we build AI that fits <strong>your scale</strong>
             </p>
         </SectionWrapper>
     );

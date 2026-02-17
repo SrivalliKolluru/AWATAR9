@@ -34,8 +34,8 @@ export default function Footer() {
                             </span>
                         </div>
                         <p className={styles.footerTagline}>
-                            Designing AI That Delivers. We build smart AI agents for real
-                            business challenges — ready-made and custom solutions.
+                            Designing AI That Delivers We build smart AI agents for real
+                            business challenges — ready-made and custom solutions
                         </p>
                     </div>
 
@@ -57,7 +57,7 @@ export default function Footer() {
 
                 <div className={styles.footerBottom}>
                     <p className={styles.copyright}>
-                        &copy; {year} AWATAR9. All rights reserved.
+                        &copy; {year} AWATAR9 All rights reserved
                     </p>
                     <div className={styles.socialLinks}>
                         <a href="#" className={styles.socialLink} aria-label="LinkedIn">

@@ -20,7 +20,7 @@ export default function Achievements() {
             <div className="section-label">✦ Results</div>
             <h2 className="section-title">What We Help You Achieve</h2>
             <p className="section-subtitle">
-                With AWATAR9, your team focuses on strategy. Our AI handles execution.
+                With AWATAR9, your team focuses on strategy Our AI handles execution
             </p>
 
             <div className={styles.grid}>
@@ -41,9 +41,9 @@ export default function Achievements() {
             </div>
 
             <p className={styles.tagline}>
-                Your team focuses on <strong>strategy</strong>.
+                Your team focuses on <strong>strategy</strong>
                 <br />
-                Our AI handles <strong>execution</strong>.
+                Our AI handles <strong>execution</strong>
             </p>
         </SectionWrapper>
     );

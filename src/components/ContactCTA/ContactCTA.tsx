@@ -27,7 +27,7 @@ export default function ContactCTA() {
                 <div className="section-label">✦ Get Started</div>
                 <h2 className="section-title">Let&apos;s Build Your AI Workforce</h2>
                 <p className="section-subtitle" style={{ margin: '0 auto' }}>
-                    Ready to transform your business with AI? Let&apos;s talk.
+                    Ready to transform your business with AI? Let&apos;s talk
                 </p>
 
                 {submitted ? (
@@ -36,7 +36,7 @@ export default function ContactCTA() {
                             <CheckCircle size={32} />
                         </div>
                         <h3>Message Sent!</h3>
-                        <p>We&apos;ll get back to you within 24 hours.</p>
+                        <p>We&apos;ll get back to you within 24 hours</p>
                     </div>
                 ) : (
                     <form className={styles.form} onSubmit={handleSubmit}>

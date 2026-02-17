@@ -20,10 +20,10 @@ export default function ReadyMadeBots() {
         <SectionWrapper id="solutions">
             <div className={styles.sectionHeader}>
                 <div className="section-label">✦ Ready-Made Solutions</div>
-                <h2 className="section-title">Ready-Made AI Bots. Customized for You.</h2>
+                <h2 className="section-title">Ready-Made AI Bots Customized for You</h2>
                 <p className={styles.tagline}>
-                    Not one-size-fits-all AI. We have already built powerful AI bots for common
-                    business needs. These ready-made bots can be quickly deployed for your workflow.
+                    Not one-size-fits-all AI We have already built powerful AI bots for common
+                    business needs These ready-made bots can be quickly deployed for your workflow
                 </p>
             </div>
 
@@ -46,9 +46,9 @@ export default function ReadyMadeBots() {
             </div>
 
             <div className={styles.emphasis}>
-                You don&apos;t start from zero. You start from a proven system.
+                You don&apos;t start from zero You start from a proven system
                 <br />
-                <span className={styles.emphasisSub}>Fast. Reliable. Scalable.</span>
+                <span className={styles.emphasisSub}>Fast Reliable Scalable</span>
             </div>
         </SectionWrapper>
     );

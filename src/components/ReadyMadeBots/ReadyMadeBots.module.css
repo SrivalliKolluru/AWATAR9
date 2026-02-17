@@ -58,6 +58,7 @@
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
     margin-top: var(--space-4);
+    margin-bottom: var(--space-12);
     line-height: 1.7;
 }
 

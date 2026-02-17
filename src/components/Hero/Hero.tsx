@@ -46,8 +46,11 @@ export default function Hero() {
                     custom={2}
                     variants={fadeUp}
                 >
-                    At AWATAR9, we design smart AI agents for real business challenges.
-                    Our bots don&apos;t just automate — they think, they act, they deliver results.
+                    At AWATAR9, we design smart AI agents for real business challenges.<br />
+                    Our bots don&apos;t just automate — <br />
+                    <span className={styles.highlightRow}>they think,</span><br />
+                    <span className={styles.highlightRow}>they act,</span><br />
+                    <span className={styles.highlightRow}>they deliver results.</span>
                 </motion.p>
 
                 <motion.div

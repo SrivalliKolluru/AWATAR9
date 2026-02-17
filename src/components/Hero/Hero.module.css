@@ -74,6 +74,13 @@
     line-height: 1.6;
 }
 
+.highlightRow {
+    color: var(--color-primary);
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 4px;
+}
+
 .heroActions {
     display: flex;
     gap: 20px;

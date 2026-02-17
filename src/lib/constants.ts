@@ -6,7 +6,7 @@ export const BASE_PATH = process.env.NODE_ENV === 'production' ? '/AWATAR9' : ''
 
 export const SITE = {
     name: 'AWATAR9',
-    tagline: 'Designing AI That Delivers',
+    tagline: 'Designing AI That Delivers.',
     description:
         'At AWATAR9, we design smart AI agents for real business challenges. Ready-made and custom AI bots that think, act, and deliver results.',
     url: 'https://SrivalliKolluru.github.io/AWATAR9',
@@ -105,21 +105,21 @@ export const TECH_BENEFITS = [
 ] as const;
 
 export const ACHIEVEMENTS = [
-    { text: 'Save time', icon: 'Clock', color: '#4dffb5' },
-    { text: 'Reduce manual work', icon: 'Minimize2', color: '#6ea8ff' },
-    { text: 'Increase productivity', icon: 'Zap', color: '#ffd93d' },
-    { text: 'Improve accuracy', icon: 'CheckCircle', color: '#c77dff' },
-    { text: 'Scale faster', icon: 'Rocket', color: '#ff7eb6' },
-    { text: 'Lower operational costs', icon: 'DollarSign', color: '#00d4aa' },
+    { text: 'Save time.', icon: 'Clock', color: '#4dffb5' },
+    { text: 'Reduce manual work.', icon: 'Minimize2', color: '#6ea8ff' },
+    { text: 'Increase productivity.', icon: 'Zap', color: '#ffd93d' },
+    { text: 'Improve accuracy.', icon: 'CheckCircle', color: '#c77dff' },
+    { text: 'Scale faster.', icon: 'Rocket', color: '#ff7eb6' },
+    { text: 'Lower operational costs.', icon: 'DollarSign', color: '#00d4aa' },
 ] as const;
 
 export const APPROACH_STEPS = [
-    { step: 1, title: 'Understand your business' },
-    { step: 2, title: 'Identify automation opportunities' },
-    { step: 3, title: 'Select or build the right bot' },
-    { step: 4, title: 'Customize workflows' },
-    { step: 5, title: 'Integrate with your systems' },
-    { step: 6, title: 'Launch and optimize' },
+    { step: 1, title: 'Understand your business.' },
+    { step: 2, title: 'Identify automation opportunities.' },
+    { step: 3, title: 'Select or build the right bot.' },
+    { step: 4, title: 'Customize workflows.' },
+    { step: 5, title: 'Integrate with your systems.' },
+    { step: 6, title: 'Launch and optimize.' },
 ] as const;
 
 export const INDUSTRIES = [
@@ -132,10 +132,10 @@ export const INDUSTRIES = [
 ] as const;
 
 export const WHY_CHOOSE = [
-    { text: 'Business-focused AI', icon: 'Briefcase', color: '#4dffb5' },
-    { text: 'Ready + Custom solutions', icon: 'Package', color: '#6ea8ff' },
-    { text: 'Fast deployment', icon: 'Rocket', color: '#ffd93d' },
-    { text: 'Modern technology', icon: 'Cpu', color: '#c77dff' },
-    { text: 'Dedicated support', icon: 'HeadphonesIcon', color: '#ff7eb6' },
-    { text: 'Transparent pricing', icon: 'CreditCard', color: '#00d4aa' },
+    { text: 'Business-focused AI.', icon: 'Briefcase', color: '#4dffb5' },
+    { text: 'Ready + Custom solutions.', icon: 'Package', color: '#6ea8ff' },
+    { text: 'Fast deployment.', icon: 'Rocket', color: '#ffd93d' },
+    { text: 'Modern technology.', icon: 'Cpu', color: '#c77dff' },
+    { text: 'Dedicated support.', icon: 'HeadphonesIcon', color: '#ff7eb6' },
+    { text: 'Transparent pricing.', icon: 'CreditCard', color: '#00d4aa' },
 ] as const;

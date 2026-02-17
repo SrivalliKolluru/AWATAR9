@@ -13,9 +13,12 @@
 
   /* Deep Dark Theme */
   --color-bg-primary: #050914;
-  --color-bg-secondary: #0c1330;
-  --color-bg-tertiary: #070b20;
+  --color-bg-secondary: #050914;
+  /* Unified with primary */
+  --color-bg-tertiary: #050914;
+  /* Unified with primary */
   --color-bg-card: #0c1330;
+  /* Cards keep their distinct color for glassmorphic effect */
   --color-bg-card-hover: rgba(77, 255, 181, 0.05);
 
   --color-text-primary: #f5f7ff;
@@ -27,7 +30,8 @@
 
   /* Gradients */
   --gradient-primary: linear-gradient(90deg, #4dffb5, #6ea8ff);
-  --gradient-hero: radial-gradient(circle at top, #0b1640, #050914);
+  --gradient-hero: #050914;
+  /* Single solid color */
   --gradient-card: linear-gradient(180deg, #0c1330, #070b20);
   --gradient-accent: linear-gradient(135deg, #4dffb5, #6ea8ff);
 

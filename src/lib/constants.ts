@@ -97,12 +97,7 @@ export const TECH_STACK = [
     { name: 'Secure Infrastructure', icon: 'Shield', color: '#00d4aa' },
 ] as const;
 
-export const TECH_BENEFITS = [
-    'High performance',
-    'Easy scaling',
-    'Low maintenance',
-    'Long-term reliability',
-] as const;
+export const TECH_BENEFITS = [] as const;
 
 export const ACHIEVEMENTS = [
     { text: 'Save time', icon: 'Clock', color: '#4dffb5' },

@@ -41,14 +41,16 @@ export default function TechStack() {
                 ))}
             </div>
 
-            <div className={styles.benefits}>
-                {TECH_BENEFITS.map((benefit) => (
-                    <div key={benefit} className={styles.benefit}>
-                        <div className={styles.benefitDot} />
-                        {benefit}
-                    </div>
-                ))}
-            </div>
+            {TECH_BENEFITS.length > 0 && (
+                <div className={styles.benefits}>
+                    {TECH_BENEFITS.map((benefit) => (
+                        <div key={benefit} className={styles.benefit}>
+                            <div className={styles.benefitDot} />
+                            {benefit}
+                        </div>
+                    ))}
+                </div>
+            )}
 
             <p className={styles.growthText}>
                 Your system grows with your business

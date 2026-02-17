@@ -28,10 +28,14 @@
     width: 44px;
     height: 44px;
     border-radius: 12px;
-    background: var(--gradient-accent);
-    color: #02040f;
+    /* background and color are set inline in Achievements.tsx */
     flex-shrink: 0;
-    transition: all var(--transition-base);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), filter var(--transition-base);
+}
+
+.card:hover .cardIcon {
+    transform: scale(1.1) rotate(5deg);
+    filter: brightness(1.2);
 }
 
 .cardText {

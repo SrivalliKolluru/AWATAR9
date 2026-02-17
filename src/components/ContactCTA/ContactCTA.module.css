@@ -101,8 +101,10 @@
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-full);
-    background: rgba(0, 212, 170, 0.08);
-    color: var(--color-secondary);
+    background: rgba(77, 255, 181, 0.08);
+    /* Using primary green with low opacity */
+    color: var(--color-primary);
+    /* Using primary green */
 }
 
 .successMessage h3 {

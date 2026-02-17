@@ -18,14 +18,14 @@
     height: 64px;
     margin: 0 auto var(--space-5);
     border-radius: var(--radius-lg);
-    background: rgba(99, 102, 241, 0.05);
-    color: var(--color-primary-light);
-    transition: background var(--transition-base), transform var(--transition-base);
+    /* background and color are set inline in TechStack.tsx */
+    transition: background var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .card:hover .cardIcon {
-    background: rgba(99, 102, 241, 0.1);
-    transform: scale(1.1);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 0 20px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .cardName {

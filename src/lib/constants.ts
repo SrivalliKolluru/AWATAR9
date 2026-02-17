@@ -25,6 +25,7 @@ export interface BotCategory {
     title: string;
     description: string;
     icon: string;
+    color: string;
 }
 
 export const BOT_CATEGORIES: BotCategory[] = [
@@ -32,36 +33,43 @@ export const BOT_CATEGORIES: BotCategory[] = [
         title: 'Lead Generation Agents',
         description: 'Automate prospecting and capture high-quality leads around the clock.',
         icon: 'Target',
+        color: '#ff6b6b',
     },
     {
         title: 'Recruitment Agents',
         description: 'Screen candidates, schedule interviews, and streamline your hiring pipeline.',
         icon: 'Users',
+        color: '#4dffb5',
     },
     {
         title: 'Sales Outreach Bots',
         description: 'Personalized outreach at scale — emails, follow-ups, and engagement.',
         icon: 'TrendingUp',
+        color: '#6ea8ff',
     },
     {
         title: 'Data Extraction Bots',
         description: 'Pull, clean, and organize data from any source automatically.',
         icon: 'Database',
+        color: '#ffd93d',
     },
     {
         title: 'CRM Automation Bots',
         description: 'Keep your CRM updated, trigger workflows, and never miss a follow-up.',
         icon: 'Settings',
+        color: '#c77dff',
     },
     {
         title: 'Research Assistants',
         description: 'Gather insights, summarize reports, and accelerate decision-making.',
         icon: 'Search',
+        color: '#ff7eb6',
     },
     {
         title: 'Customer Support Agents',
         description: 'Instant, intelligent responses — 24/7 support without the overhead.',
         icon: 'Headphones',
+        color: '#00d4aa',
     },
 ];
 
@@ -81,12 +89,12 @@ export const CUSTOM_AI_STEPS: ProcessStep[] = [
 ];
 
 export const TECH_STACK = [
-    { name: 'n8n Workflows', icon: 'Workflow' },
-    { name: 'AI Agents', icon: 'Bot' },
-    { name: 'API Integrations', icon: 'Plug' },
-    { name: 'Cloud Automation', icon: 'Cloud' },
-    { name: 'Data Pipelines', icon: 'GitBranch' },
-    { name: 'Secure Infrastructure', icon: 'Shield' },
+    { name: 'n8n Workflows', icon: 'Workflow', color: '#4dffb5' },
+    { name: 'AI Agents', icon: 'Bot', color: '#6ea8ff' },
+    { name: 'API Integrations', icon: 'Plug', color: '#c77dff' },
+    { name: 'Cloud Automation', icon: 'Cloud', color: '#ff7eb6' },
+    { name: 'Data Pipelines', icon: 'GitBranch', color: '#ffd93d' },
+    { name: 'Secure Infrastructure', icon: 'Shield', color: '#00d4aa' },
 ] as const;
 
 export const TECH_BENEFITS = [
@@ -97,12 +105,12 @@ export const TECH_BENEFITS = [
 ] as const;
 
 export const ACHIEVEMENTS = [
-    { text: 'Save time', icon: 'Clock' },
-    { text: 'Reduce manual work', icon: 'Minimize2' },
-    { text: 'Increase productivity', icon: 'Zap' },
-    { text: 'Improve accuracy', icon: 'CheckCircle' },
-    { text: 'Scale faster', icon: 'Rocket' },
-    { text: 'Lower operational costs', icon: 'DollarSign' },
+    { text: 'Save time', icon: 'Clock', color: '#4dffb5' },
+    { text: 'Reduce manual work', icon: 'Minimize2', color: '#6ea8ff' },
+    { text: 'Increase productivity', icon: 'Zap', color: '#ffd93d' },
+    { text: 'Improve accuracy', icon: 'CheckCircle', color: '#c77dff' },
+    { text: 'Scale faster', icon: 'Rocket', color: '#ff7eb6' },
+    { text: 'Lower operational costs', icon: 'DollarSign', color: '#00d4aa' },
 ] as const;
 
 export const APPROACH_STEPS = [
@@ -124,10 +132,10 @@ export const INDUSTRIES = [
 ] as const;
 
 export const WHY_CHOOSE = [
-    { text: 'Business-focused AI', icon: 'Briefcase' },
-    { text: 'Ready + Custom solutions', icon: 'Package' },
-    { text: 'Fast deployment', icon: 'Rocket' },
-    { text: 'Modern technology', icon: 'Cpu' },
-    { text: 'Dedicated support', icon: 'HeadphonesIcon' },
-    { text: 'Transparent pricing', icon: 'CreditCard' },
+    { text: 'Business-focused AI', icon: 'Briefcase', color: '#4dffb5' },
+    { text: 'Ready + Custom solutions', icon: 'Package', color: '#6ea8ff' },
+    { text: 'Fast deployment', icon: 'Rocket', color: '#ffd93d' },
+    { text: 'Modern technology', icon: 'Cpu', color: '#c77dff' },
+    { text: 'Dedicated support', icon: 'HeadphonesIcon', color: '#ff7eb6' },
+    { text: 'Transparent pricing', icon: 'CreditCard', color: '#00d4aa' },
 ] as const;

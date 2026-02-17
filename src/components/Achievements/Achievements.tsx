@@ -26,7 +26,15 @@ export default function Achievements() {
             <div className={styles.grid}>
                 {ACHIEVEMENTS.map((item) => (
                     <div key={item.text} className={`glass-card ${styles.card}`}>
-                        <div className={styles.cardIcon}>{iconMap[item.icon]}</div>
+                        <div
+                            className={styles.cardIcon}
+                            style={{
+                                color: item.color,
+                                background: `${item.color}15`
+                            } as React.CSSProperties}
+                        >
+                            {iconMap[item.icon]}
+                        </div>
                         <div className={styles.cardText}>{item.text}</div>
                     </div>
                 ))}

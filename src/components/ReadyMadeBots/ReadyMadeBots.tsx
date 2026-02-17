@@ -30,7 +30,15 @@ export default function ReadyMadeBots() {
             <div className={styles.grid}>
                 {BOT_CATEGORIES.map((bot) => (
                     <div key={bot.title} className={`glass-card ${styles.card}`}>
-                        <div className={styles.cardIcon}>{iconMap[bot.icon]}</div>
+                        <div
+                            className={styles.cardIcon}
+                            style={{
+                                color: bot.color,
+                                background: `${bot.color}15`
+                            } as React.CSSProperties}
+                        >
+                            {iconMap[bot.icon]}
+                        </div>
                         <h3 className={styles.cardTitle}>{bot.title}</h3>
                         <p className={styles.cardDescription}>{bot.description}</p>
                     </div>

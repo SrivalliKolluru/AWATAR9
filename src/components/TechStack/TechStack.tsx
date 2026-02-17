@@ -27,7 +27,15 @@ export default function TechStack() {
             <div className={styles.grid}>
                 {TECH_STACK.map((tech) => (
                     <div key={tech.name} className={`glass-card ${styles.card}`}>
-                        <div className={styles.cardIcon}>{iconMap[tech.icon]}</div>
+                        <div
+                            className={styles.cardIcon}
+                            style={{
+                                color: tech.color,
+                                background: `${tech.color}15` // 15 is ~8% opacity in hex
+                            } as React.CSSProperties}
+                        >
+                            {iconMap[tech.icon]}
+                        </div>
                         <div className={styles.cardName}>{tech.name}</div>
                     </div>
                 ))}

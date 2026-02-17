@@ -1,17 +1,18 @@
 'use client';
 
 import { Briefcase, Package, Rocket, Cpu, Headphones, CreditCard } from 'lucide-react';
+import { WHY_CHOOSE } from '@/lib/constants';
 import SectionWrapper from '@/components/ui/SectionWrapper';
 import styles from './WhyChoose.module.css';
 
-const items = [
-    { text: 'Business-focused AI', icon: <Briefcase size={20} /> },
-    { text: 'Ready + Custom solutions', icon: <Package size={20} /> },
-    { text: 'Fast deployment', icon: <Rocket size={20} /> },
-    { text: 'Modern technology', icon: <Cpu size={20} /> },
-    { text: 'Dedicated support', icon: <Headphones size={20} /> },
-    { text: 'Transparent pricing', icon: <CreditCard size={20} /> },
-];
+const iconMap: Record<string, React.ReactNode> = {
+    Briefcase: <Briefcase size={20} />,
+    Package: <Package size={20} />,
+    Rocket: <Rocket size={20} />,
+    Cpu: <Cpu size={20} />,
+    HeadphonesIcon: <Headphones size={20} />,
+    CreditCard: <CreditCard size={20} />,
+};
 
 export default function WhyChoose() {
     return (
@@ -23,9 +24,17 @@ export default function WhyChoose() {
             </p>
 
             <div className={styles.grid}>
-                {items.map((item) => (
+                {WHY_CHOOSE.map((item) => (
                     <div key={item.text} className={`glass-card ${styles.card}`}>
-                        <div className={styles.cardIcon}>{item.icon}</div>
+                        <div
+                            className={styles.cardIcon}
+                            style={{
+                                color: item.color,
+                                background: `${item.color}15`
+                            } as React.CSSProperties}
+                        >
+                            {iconMap[item.icon]}
+                        </div>
                         <div className={styles.cardText}>{item.text}</div>
                     </div>
                 ))}

@@ -28,10 +28,14 @@
     width: 40px;
     height: 40px;
     border-radius: 10px;
-    background: var(--gradient-accent);
-    color: #02040f;
+    /* background and color are set inline in WhyChoose.tsx */
     flex-shrink: 0;
-    font-weight: 800;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), filter var(--transition-base);
+}
+
+.card:hover .cardIcon {
+    transform: scale(1.1);
+    filter: brightness(1.2);
 }
 
 .cardText {

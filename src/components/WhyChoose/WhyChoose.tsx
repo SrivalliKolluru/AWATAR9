@@ -43,7 +43,7 @@ export default function WhyChoose() {
             <p className={styles.tagline}>
                 We don&apos;t just build bots.
                 <br />
-                We build <strong>long-term AI systems</strong>.
+                We build long-term AI systems.
             </p>
         </SectionWrapper>
     );

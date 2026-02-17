@@ -41,9 +41,9 @@ export default function Achievements() {
             </div>
 
             <p className={styles.tagline}>
-                Your team focuses on <strong>strategy</strong>
+                Your team focuses on strategy
                 <br />
-                Our AI handles <strong>execution</strong>
+                Our AI handles execution
             </p>
         </SectionWrapper>
     );

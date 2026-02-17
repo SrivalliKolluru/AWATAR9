@@ -17,7 +17,6 @@ export const NAV_LINKS = [
     { label: 'Solutions', href: '#solutions' },
     { label: 'Custom AI', href: '#custom-ai' },
     { label: 'Technology', href: '#technology' },
-    { label: 'Approach', href: '#approach' },
 
 ] as const;
 

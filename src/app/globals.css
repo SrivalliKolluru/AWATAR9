@@ -192,6 +192,8 @@ h6 {
   /* Slightly smaller for a more refined look */
   color: var(--color-text-secondary);
   line-height: 1.6;
+  margin-bottom: var(--space-6);
+  /* Added subtle breathing room */
 }
 
 .gradient-text {

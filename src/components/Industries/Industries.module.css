@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-4);
-    margin-top: var(--space-10);
+    margin-top: var(--space-4);
 }
 
 .tag {
@@ -15,7 +15,7 @@
 }
 
 .tagline {
-    margin-top: var(--space-10);
+    margin-top: var(--space-4);
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
     line-height: 1.8;

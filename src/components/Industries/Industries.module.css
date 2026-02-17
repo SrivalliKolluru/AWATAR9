@@ -6,20 +6,21 @@
 }
 
 .tag {
-    padding: var(--space-3) var(--space-5);
-    font-size: 14px;
+    padding: 12px 28px;
+    font-size: 16px;
     font-weight: 600;
-    color: var(--color-text-secondary);
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
     border-radius: 100px;
     cursor: default;
     transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tag:hover {
-    color: var(--color-text-primary);
-    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
     border-color: var(--color-primary);
 }
 

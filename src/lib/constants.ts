@@ -117,12 +117,10 @@ export const APPROACH_STEPS = [
 ] as const;
 
 export const INDUSTRIES = [
-    'Staffing Companies',
-    'Recruitment Firms',
-    'Pharma & CRO Companies',
-    'Sales Teams',
-    'Startups',
-    'Enterprises',
+    'Contingent Staffing',
+    'Executive Recruitment',
+    'Pharma & CRO',
+    'Marketing Agencies',
 ] as const;
 
 export const WHY_CHOOSE = [

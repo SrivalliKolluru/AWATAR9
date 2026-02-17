@@ -6,12 +6,21 @@
 }
 
 .tag {
-    padding: var(--space-4) var(--space-6);
-    font-size: var(--text-base);
+    padding: var(--space-3) var(--space-5);
+    font-size: 14px;
     font-weight: 600;
-    color: var(--color-text-primary);
-    border-radius: var(--radius-lg);
+    color: var(--color-text-secondary);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
     cursor: default;
+    transition: all var(--transition-base);
+}
+
+.tag:hover {
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--color-primary);
 }
 
 .tagline {

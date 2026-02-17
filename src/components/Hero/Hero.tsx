@@ -46,7 +46,7 @@ export default function Hero() {
                     custom={2}
                     variants={fadeUp}
                 >
-                    <span>At AWATAR9, we design smart AI agents for real business challenges.</span>
+                    <span>At AWATAR9, we design smart AI agents for real business challenges</span>
                     <span>Our bots don&apos;t just automate —</span>
                     <span className={styles.highlightRow}>They Think,</span>
                     <span className={styles.highlightRow}>They Act,</span>

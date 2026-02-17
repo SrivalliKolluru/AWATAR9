@@ -22,7 +22,7 @@ export default function Industries() {
             </div>
 
             <p className={styles.tagline}>
-                From startups to enterprises — we build AI that fits your scale
+                we build AI that fits your scale
             </p>
         </SectionWrapper>
     );

@@ -18,9 +18,9 @@ export default function WhyChoose() {
     return (
         <SectionWrapper id="why-choose">
             <div className="section-label">✦ Why Us</div>
-            <h2 className="section-title">Why Choose AWATAR9.</h2>
+            <h2 className="section-title">Why Choose AWATAR9</h2>
             <p className="section-subtitle">
-                We don&apos;t just build bots. We build long-term AI systems.
+                We don&apos;t just build bots We build long-term AI systems
             </p>
 
             <div className={styles.grid}>
@@ -41,9 +41,9 @@ export default function WhyChoose() {
             </div>
 
             <p className={styles.tagline}>
-                We don&apos;t just build bots.
+                We don&apos;t just build bots
                 <br />
-                We build long-term AI systems.
+                We build long-term AI systems
             </p>
         </SectionWrapper>
     );

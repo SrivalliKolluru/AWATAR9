@@ -8,16 +8,41 @@ import styles from './ContactCTA.module.css';
 export default function ContactCTA() {
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
+        setError(null);
 
-        // Simulate form submission — replace with actual API call
-        await new Promise((resolve) => setTimeout(resolve, 1200));
+        const formData = new FormData(e.currentTarget);
+        const data = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            company: formData.get('company'),
+            message: formData.get('message'),
+        };
 
-        setSubmitted(true);
-        setLoading(false);
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                const result = await response.json();
+                throw new Error(result.error || 'Something went wrong');
+            }
+
+            setSubmitted(true);
+        } catch (err: any) {
+            setError(err.message || 'Failed to send message. Please try again.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -72,6 +97,7 @@ export default function ContactCTA() {
                             name="message"
                             id="contact-message"
                         />
+                        {error && <p className={styles.errorMessage}>{error}</p>}
                         <button
                             type="submit"
                             className={styles.submitButton}

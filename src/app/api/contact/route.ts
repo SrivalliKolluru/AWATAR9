@@ -17,7 +17,7 @@ export async function POST(req: Request) {
         }
 
         const resend = new Resend(resendApiKey);
-        const { name, email, company, message } = await req.json();
+        const { name, email, userEmail, message } = await req.json();
 
         // 1. Save to Supabase
         if (!supabase) {
@@ -28,9 +28,16 @@ export async function POST(req: Request) {
             );
         }
 
+        // We use the 'company' column to store the 'userEmail' to ensure compatibility 
+        // with the existing database schema while fulfilling the requirement.
         const { error: supabaseError } = await supabase
             .from('contacts')
-            .insert([{ name, email, company, message }]);
+            .insert([{
+                name,
+                email,
+                company: userEmail,
+                message
+            }]);
 
         if (supabaseError) {
             console.error('Supabase Error Detailed:', supabaseError);
@@ -45,26 +52,33 @@ export async function POST(req: Request) {
         }
 
         // 2. Send Email via Resend
+        // Note: 'onboarding@resend.dev' can only send to the email address associated with the Resend account.
+        // If srivallikolluru4@gmail.com is not that email, this might still fail unless a domain is verified.
         const { data: emailData, error: emailError } = await resend.emails.send({
             from: 'Contact Form <onboarding@resend.dev>',
-            to: 'emma@taalentsphere.com',
+            to: 'srivallikolluru4@gmail.com',
             subject: `New Contact Form Submission from ${name}`,
             html: `
-                <h2>New Contact Form Submission</h2>
-                <p><strong>Name:</strong> ${name}</p>
-                <p><strong>Email:</strong> ${email}</p>
-                <p><strong>Company:</strong> ${company || 'N/A'}</p>
-                <p><strong>Message:</strong></p>
-                <p>${message}</p>
+                <div style="font-family: sans-serif; padding: 20px; color: #333;">
+                    <h2 style="color: #00d4aa;">New Contact Form Submission</h2>
+                    <hr style="border: 1px solid #eee;" />
+                    <p><strong>Name:</strong> ${name}</p>
+                    <p><strong>Primary Email:</strong> ${email}</p>
+                    <p><strong>User Email (Additional):</strong> ${userEmail}</p>
+                    <p style="margin-top: 20px;"><strong>Message:</strong></p>
+                    <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #00d4aa;">
+                        ${message}
+                    </div>
+                </div>
             `,
         });
 
         if (emailError) {
             console.error('Resend Error:', emailError);
-            // We don't necessarily want to fail the whole request if email fails but DB succeeded,
-            // but for this implementation, we'll report it.
+            // Returning success: false but with status 200 or 500? 
+            // The frontend expects a 200 with success: true or throws on !response.ok
             return NextResponse.json(
-                { error: 'Failed to send notification email' },
+                { error: 'Failed to send notification email', details: emailError.message },
                 { status: 500 }
             );
         }

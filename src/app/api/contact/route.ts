@@ -17,7 +17,7 @@ export async function POST(req: Request) {
         }
 
         const resend = new Resend(resendApiKey);
-        const { name, email, userEmail, message } = await req.json();
+        const { name, email, message } = await req.json();
 
         // 1. Save to Supabase
         if (!supabase) {
@@ -28,14 +28,11 @@ export async function POST(req: Request) {
             );
         }
 
-        // We use the 'company' column to store the 'userEmail' to ensure compatibility 
-        // with the existing database schema while fulfilling the requirement.
         const { error: supabaseError } = await supabase
             .from('contacts')
             .insert([{
                 name,
                 email,
-                company: userEmail,
                 message
             }]);
 
@@ -63,8 +60,7 @@ export async function POST(req: Request) {
                     <h2 style="color: #00d4aa;">New Contact Form Submission</h2>
                     <hr style="border: 1px solid #eee;" />
                     <p><strong>Name:</strong> ${name}</p>
-                    <p><strong>Primary Email:</strong> ${email}</p>
-                    <p><strong>User Email (Additional):</strong> ${userEmail}</p>
+                    <p><strong>Email:</strong> ${email}</p>
                     <p style="margin-top: 20px;"><strong>Message:</strong></p>
                     <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #00d4aa;">
                         ${message}

@@ -19,7 +19,6 @@ export default function ContactCTA() {
         const data = {
             name: formData.get('name'),
             email: formData.get('email'),
-            userEmail: formData.get('userEmail'),
             message: formData.get('message'),
         };
 
@@ -93,14 +92,7 @@ export default function ContactCTA() {
                                 id="contact-email"
                             />
                         </div>
-                        <input
-                            type="email"
-                            className={styles.input}
-                            placeholder="User Email"
-                            name="userEmail"
-                            id="contact-user-email"
-                            required
-                        />
+
                         <textarea
                             className={`${styles.input} ${styles.textarea}`}
                             placeholder="Tell us about your project or challenge..."

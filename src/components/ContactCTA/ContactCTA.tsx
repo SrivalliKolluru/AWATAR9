@@ -32,12 +32,22 @@ export default function ContactCTA() {
                 body: JSON.stringify(data),
             });
 
-            if (!response.ok) {
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
                 const result = await response.json();
-                throw new Error(result.error || 'Something went wrong');
+                if (!response.ok) {
+                    throw new Error(result.error || 'Something went wrong');
+                }
+                setSubmitted(true);
+            } else {
+                // If we got HTML (e.g. 404 or 500 page), suggest checking configuration
+                const text = await response.text();
+                console.error('Server responded with non-JSON:', text.substring(0, 100));
+                if (response.status === 404) {
+                    throw new Error('Form endpoint not found. If this is a static site, API routes are not supported.');
+                }
+                throw new Error(`Server Error (${response.status}). Please check server logs and configuration.`);
             }
-
-            setSubmitted(true);
         } catch (err: any) {
             setError(err.message || 'Failed to send message. Please try again.');
         } finally {

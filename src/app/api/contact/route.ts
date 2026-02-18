@@ -2,13 +2,32 @@ import { NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
     try {
+        const resendApiKey = process.env.RESEND_API_KEY;
+        const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+        const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+        if (!resendApiKey || !supabaseUrl || !supabaseAnonKey) {
+            console.error('Missing environment variables');
+            return NextResponse.json(
+                { error: 'Server configuration error: Missing API keys' },
+                { status: 500 }
+            );
+        }
+
+        const resend = new Resend(resendApiKey);
         const { name, email, company, message } = await req.json();
 
         // 1. Save to Supabase
+        if (!supabase) {
+            console.error('Supabase client not initialized');
+            return NextResponse.json(
+                { error: 'Server configuration error: Supabase client not initialized' },
+                { status: 500 }
+            );
+        }
+
         const { error: supabaseError } = await supabase
             .from('contacts')
             .insert([{ name, email, company, message }]);

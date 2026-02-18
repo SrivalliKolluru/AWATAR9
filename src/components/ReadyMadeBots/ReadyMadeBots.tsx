@@ -33,8 +33,7 @@ export default function ReadyMadeBots() {
                         <div
                             className={styles.cardIcon}
                             style={{
-                                color: bot.color,
-                                background: `${bot.color}15`
+                                color: bot.color
                             } as React.CSSProperties}
                         >
                             {iconMap[bot.icon]}

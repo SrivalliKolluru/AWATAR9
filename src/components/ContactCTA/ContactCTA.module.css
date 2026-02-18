@@ -100,11 +100,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-full);
-    background: rgba(77, 255, 181, 0.08);
-    /* Using primary green with low opacity */
+    border-radius: 16px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--color-primary);
-    /* Using primary green */
+}
+
+.successIcon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: currentColor;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.successIcon svg {
+    position: relative;
+    z-index: 1;
 }
 
 .successMessage h3 {

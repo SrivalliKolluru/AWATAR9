@@ -178,6 +178,31 @@ h6 {
   backdrop-filter: blur(4px);
 }
 
+.squircle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  position: relative;
+  transition: all var(--transition-base);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.squircle-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: currentColor;
+  opacity: 0.12;
+  z-index: 0;
+}
+
+.squircle-icon>* {
+  position: relative;
+  z-index: 1;
+}
+
 .section-title {
   font-size: clamp(32px, 4.5vw, 44px);
   font-weight: 800;

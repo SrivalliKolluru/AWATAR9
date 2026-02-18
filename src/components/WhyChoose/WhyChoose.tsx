@@ -29,8 +29,7 @@ export default function WhyChoose() {
                         <div
                             className={styles.cardIcon}
                             style={{
-                                color: item.color,
-                                background: `${item.color}15`
+                                color: item.color
                             } as React.CSSProperties}
                         >
                             {iconMap[item.icon]}

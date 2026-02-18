@@ -17,10 +17,25 @@
     width: 64px;
     height: 64px;
     margin: 0 auto var(--space-5);
-    border-radius: var(--radius-lg);
-    /* background and color are set inline in TechStack.tsx */
+    border-radius: 16px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: background var(--transition-base), transform var(--transition-base), box-shadow var(--transition-base);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cardIcon::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: currentColor;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+.cardIcon svg {
+    position: relative;
+    z-index: 1;
 }
 
 .card:hover .cardIcon {

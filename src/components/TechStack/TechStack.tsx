@@ -30,8 +30,7 @@ export default function TechStack() {
                         <div
                             className={styles.cardIcon}
                             style={{
-                                color: tech.color,
-                                background: `${tech.color}15` // 15 is ~8% opacity in hex
+                                color: tech.color
                             } as React.CSSProperties}
                         >
                             {iconMap[tech.icon]}

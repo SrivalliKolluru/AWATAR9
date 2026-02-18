@@ -33,9 +33,13 @@ export async function POST(req: Request) {
             .insert([{ name, email, company, message }]);
 
         if (supabaseError) {
-            console.error('Supabase Error:', supabaseError);
+            console.error('Supabase Error Detailed:', supabaseError);
             return NextResponse.json(
-                { error: 'Failed to save contact information' },
+                {
+                    error: 'Failed to save contact information',
+                    details: supabaseError.message,
+                    code: supabaseError.code
+                },
                 { status: 500 }
             );
         }
@@ -43,7 +47,7 @@ export async function POST(req: Request) {
         // 2. Send Email via Resend
         const { data: emailData, error: emailError } = await resend.emails.send({
             from: 'Contact Form <onboarding@resend.dev>',
-            to: 'emmacollins@taalentsphere.com',
+            to: 'emma@taalentsphere.com',
             subject: `New Contact Form Submission from ${name}`,
             html: `
                 <h2>New Contact Form Submission</h2>

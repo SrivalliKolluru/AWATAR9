@@ -2,7 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
-import SectionWrapper from '@/components/ui/SectionWrapper';
+import { supabase } from '@/lib/supabase';
 import styles from './ContactCTA.module.css';
 
 export default function ContactCTA() {
@@ -16,37 +16,27 @@ export default function ContactCTA() {
         setError(null);
 
         const formData = new FormData(e.currentTarget);
-        const data = {
-            name: formData.get('name'),
-            email: formData.get('email'),
-            message: formData.get('message'),
-        };
+        const name = formData.get('name') as string;
+        const email = formData.get('email') as string;
+        const message = formData.get('message') as string;
 
         try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-
-            const contentType = response.headers.get('content-type');
-            if (contentType && contentType.includes('application/json')) {
-                const result = await response.json();
-                if (!response.ok) {
-                    throw new Error(result.error || 'Something went wrong');
-                }
-                setSubmitted(true);
-            } else {
-                // If we got HTML (e.g. 404 or 500 page), suggest checking configuration
-                const text = await response.text();
-                console.error('Server responded with non-JSON:', text.substring(0, 100));
-                if (response.status === 404) {
-                    throw new Error('Form endpoint not found. If this is a static site, API routes are not supported.');
-                }
-                throw new Error(`Server Error (${response.status}). Please check server logs and configuration.`);
+            // Check if Supabase is initialized
+            if (!supabase) {
+                throw new Error('Database connection not configured. Please check your environment variables.');
             }
+
+            // 1. Save to Supabase (Client-Side)
+            const { error: supabaseError } = await supabase
+                .from('contacts')
+                .insert([{ name, email, message }]);
+
+            if (supabaseError) {
+                console.error('Supabase Error:', supabaseError);
+                throw new Error(supabaseError.message || 'Failed to save message');
+            }
+
+            setSubmitted(true);
         } catch (err: any) {
             setError(err.message || 'Failed to send message. Please try again.');
         } finally {

@@ -23,9 +23,13 @@ export default function ContactCTA() {
         const message = formData.get('message') as string;
 
         try {
-            // 1. Save directly to Supabase (works on GitHub Pages & locally)
+            // 1. Save directly to Supabase
             if (!supabase) {
-                throw new Error('Database not configured');
+                const isGitHubPages = typeof window !== 'undefined' && window.location.hostname.includes('github.io');
+                const errorMessage = isGitHubPages
+                    ? 'Database not configured. Please ensure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are set in GitHub Secrets.'
+                    : 'Database not configured. Please check your .env.local file and restart the dev server.';
+                throw new Error(errorMessage);
             }
 
             const { error: supabaseError } = await supabase

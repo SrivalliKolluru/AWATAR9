@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
 import SectionWrapper from '@/components/ui/SectionWrapper';
+import { supabase } from '@/lib/supabase';
 import styles from './ContactCTA.module.css';
 
 export default function ContactCTA() {
@@ -22,16 +23,32 @@ export default function ContactCTA() {
         const message = formData.get('message') as string;
 
         try {
-            // Save to Supabase & Send Email via API Route
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, company, message }),
-            });
+            // 1. Save directly to Supabase (works on GitHub Pages & locally)
+            if (!supabase) {
+                throw new Error('Database not configured');
+            }
 
-            if (!response.ok) {
-                const data = await response.json();
-                throw new Error(data.error || 'Failed to send message');
+            const { error: supabaseError } = await supabase
+                .from('contacts')
+                .insert([{ name, email, company, message }]);
+
+            if (supabaseError) {
+                throw new Error(supabaseError.message || 'Failed to save to database');
+            }
+
+            // 2. Send email notification via API (only works locally, skipped on GitHub Pages)
+            const isLocal = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+            if (isLocal) {
+                try {
+                    await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, email, company, message }),
+                    });
+                } catch {
+                    // Email notification failure is non-fatal — DB save already succeeded
+                    console.warn('Email notification skipped (API not available)');
+                }
             }
 
             setSubmitted(true);

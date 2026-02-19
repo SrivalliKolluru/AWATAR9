@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
+import SectionWrapper from '@/components/ui/SectionWrapper';
 import { supabase } from '@/lib/supabase';
 import styles from './ContactCTA.module.css';
 

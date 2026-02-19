@@ -3,7 +3,6 @@
 import { useState, FormEvent } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
 import SectionWrapper from '@/components/ui/SectionWrapper';
-import { supabase } from '@/lib/supabase';
 import styles from './ContactCTA.module.css';
 
 export default function ContactCTA() {
@@ -23,39 +22,16 @@ export default function ContactCTA() {
         const message = formData.get('message') as string;
 
         try {
-            // 1. Save to Supabase (Works on both Local & GitHub Pages)
-            if (!supabase) {
-                console.warn('Supabase not configured, skipping DB insert');
-            } else {
-                const { error: supabaseError } = await supabase
-                    .from('contacts')
-                    .insert([{ name, email, company, message }]);
+            // Save to Supabase & Send Email via API Route
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, company, message }),
+            });
 
-                if (supabaseError) {
-                    console.error('Supabase Error:', supabaseError);
-                    throw new Error(supabaseError.message || 'Failed to save to database');
-                }
-            }
-
-            // 2. Send Email via API Route (Works locally, fails gracefully on GitHub Pages)
-            try {
-                const isLocal = window.location.hostname === 'localhost';
-                if (isLocal) {
-                    const response = await fetch('/api/contact', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name, email, company, message }),
-                    });
-
-                    if (!response.ok) {
-                        const data = await response.json();
-                        console.error('Email API Error:', data.error);
-                    }
-                } else {
-                    console.info('Email notification skipped: API routes are not supported on static GitHub Pages deployment.');
-                }
-            } catch (emailErr) {
-                console.warn('Email notification failed but DB save succeeded:', emailErr);
+            if (!response.ok) {
+                const data = await response.json();
+                throw new Error(data.error || 'Failed to send message');
             }
 
             setSubmitted(true);

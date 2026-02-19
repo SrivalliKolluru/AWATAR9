@@ -17,7 +17,7 @@ export async function POST(req: Request) {
         }
 
         const resend = new Resend(resendApiKey);
-        const { name, email, message } = await req.json();
+        const { name, email, company, message } = await req.json();
 
         // 1. Save to Supabase
         if (!supabase) {
@@ -33,6 +33,7 @@ export async function POST(req: Request) {
             .insert([{
                 name,
                 email,
+                company,
                 message
             }]);
 
@@ -49,8 +50,6 @@ export async function POST(req: Request) {
         }
 
         // 2. Send Email via Resend
-        // Note: 'onboarding@resend.dev' can only send to the email address associated with the Resend account.
-        // If srivallikolluru4@gmail.com is not that email, this might still fail unless a domain is verified.
         const { data: emailData, error: emailError } = await resend.emails.send({
             from: 'Contact Form <onboarding@resend.dev>',
             to: 'srivallikolluru4@gmail.com',
@@ -61,6 +60,7 @@ export async function POST(req: Request) {
                     <hr style="border: 1px solid #eee;" />
                     <p><strong>Name:</strong> ${name}</p>
                     <p><strong>Email:</strong> ${email}</p>
+                    <p><strong>Company:</strong> ${company || 'N/A'}</p>
                     <p style="margin-top: 20px;"><strong>Message:</strong></p>
                     <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; border-left: 4px solid #00d4aa;">
                         ${message}
@@ -71,8 +71,6 @@ export async function POST(req: Request) {
 
         if (emailError) {
             console.error('Resend Error:', emailError);
-            // Returning success: false but with status 200 or 500? 
-            // The frontend expects a 200 with success: true or throws on !response.ok
             return NextResponse.json(
                 { error: 'Failed to send notification email', details: emailError.message },
                 { status: 500 }

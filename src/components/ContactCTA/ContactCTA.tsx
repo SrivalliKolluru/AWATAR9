@@ -19,22 +19,43 @@ export default function ContactCTA() {
         const formData = new FormData(e.currentTarget);
         const name = formData.get('name') as string;
         const email = formData.get('email') as string;
+        const company = formData.get('company') as string;
         const message = formData.get('message') as string;
 
         try {
-            // Check if Supabase is initialized
+            // 1. Save to Supabase (Works on both Local & GitHub Pages)
             if (!supabase) {
-                throw new Error('Database connection not configured. Please check your environment variables.');
+                console.warn('Supabase not configured, skipping DB insert');
+            } else {
+                const { error: supabaseError } = await supabase
+                    .from('contacts')
+                    .insert([{ name, email, company, message }]);
+
+                if (supabaseError) {
+                    console.error('Supabase Error:', supabaseError);
+                    throw new Error(supabaseError.message || 'Failed to save to database');
+                }
             }
 
-            // 1. Save to Supabase (Client-Side)
-            const { error: supabaseError } = await supabase
-                .from('contacts')
-                .insert([{ name, email, message }]);
+            // 2. Send Email via API Route (Works locally, fails gracefully on GitHub Pages)
+            try {
+                const isLocal = window.location.hostname === 'localhost';
+                if (isLocal) {
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name, email, company, message }),
+                    });
 
-            if (supabaseError) {
-                console.error('Supabase Error:', supabaseError);
-                throw new Error(supabaseError.message || 'Failed to save message');
+                    if (!response.ok) {
+                        const data = await response.json();
+                        console.error('Email API Error:', data.error);
+                    }
+                } else {
+                    console.info('Email notification skipped: API routes are not supported on static GitHub Pages deployment.');
+                }
+            } catch (emailErr) {
+                console.warn('Email notification failed but DB save succeeded:', emailErr);
             }
 
             setSubmitted(true);
@@ -84,12 +105,23 @@ export default function ContactCTA() {
                             />
                         </div>
 
+                        <div className={styles.inputGroup} style={{ marginTop: '1rem' }}>
+                            <input
+                                type="text"
+                                className={styles.input}
+                                placeholder="Company Name (Optional)"
+                                name="company"
+                                id="contact-company"
+                            />
+                        </div>
+
                         <textarea
                             className={`${styles.input} ${styles.textarea}`}
                             placeholder="Tell us about your project or challenge..."
                             required
                             name="message"
                             id="contact-message"
+                            style={{ marginTop: '1rem' }}
                         />
                         {error && <p className={styles.errorMessage}>{error}</p>}
                         <button

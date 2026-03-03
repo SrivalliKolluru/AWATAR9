@@ -67,7 +67,7 @@
     padding: var(--space-4) var(--space-8);
     font-size: var(--text-base);
     font-weight: 600;
-    color: white;
+    color: #02040f;
     background: var(--gradient-primary);
     border-radius: var(--radius-full);
     transition: transform var(--transition-fast), box-shadow var(--transition-fast);

@@ -88,7 +88,7 @@ export const CUSTOM_AI_STEPS: ProcessStep[] = [
 ];
 
 export const TECH_STACK = [
-    { name: 'n8n Workflows', icon: 'Workflow', color: '#4dffb5' },
+    { name: 'Low Code Workflows', icon: 'Workflow', color: '#4dffb5' },
     { name: 'AI Agents', icon: 'Bot', color: '#6ea8ff' },
     { name: 'API Integrations', icon: 'Plug', color: '#c77dff' },
     { name: 'Cloud Automation', icon: 'Cloud', color: '#ff7eb6' },
@@ -125,7 +125,7 @@ export const INDUSTRIES = [
 
 export const WHY_CHOOSE = [
     { text: 'Business-focused AI', icon: 'Briefcase', color: '#4dffb5' },
-    { text: 'Ready + Custom solutions', icon: 'Package', color: '#6ea8ff' },
+    { text: 'Custom-Built Intelligence', icon: 'Package', color: '#6ea8ff' },
     { text: 'Fast deployment', icon: 'Rocket', color: '#ffd93d' },
     { text: 'Modern technology', icon: 'Cpu', color: '#c77dff' },
     { text: 'Dedicated support', icon: 'HeadphonesIcon', color: '#ff7eb6' },

@@ -119,15 +119,14 @@ export default function ContactCTA() {
                             />
                         </div>
 
-                        <div className={styles.inputGroup} style={{ marginTop: '1rem' }}>
-                            <input
-                                type="text"
-                                className={styles.input}
-                                placeholder="Company Name (Optional)"
-                                name="company"
-                                id="contact-company"
-                            />
-                        </div>
+                        <input
+                            type="text"
+                            className={styles.input}
+                            placeholder="Company Name"
+                            name="company"
+                            id="contact-company"
+                            style={{ marginTop: '1rem' }}
+                        />
 
                         <textarea
                             className={`${styles.input} ${styles.textarea}`}

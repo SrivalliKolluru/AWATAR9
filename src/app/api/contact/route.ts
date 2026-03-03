@@ -19,7 +19,7 @@ export async function POST(req: Request) {
         // Send Email via Resend (DB insert is handled by the frontend directly)
         const { data: emailData, error: emailError } = await resend.emails.send({
             from: 'Contact Form <onboarding@resend.dev>',
-            to: 'madison@awatar9.com',
+            to: 'agents@awatar9.com',
             subject: `New Contact Form Submission from ${name}`,
             html: `
                 <div style="font-family: sans-serif; padding: 20px; color: #333;">

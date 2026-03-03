@@ -23,6 +23,8 @@ export default function ContactCTA() {
         const message = formData.get('message') as string;
 
         try {
+            console.log('Sending form data...', { name, email, company, message });
+
             // 1. Save directly to Supabase
             if (!supabase) {
                 const isGitHubPages = typeof window !== 'undefined' && window.location.hostname.includes('github.io');
@@ -37,26 +39,41 @@ export default function ContactCTA() {
                 .insert([{ name, email, company, message }]);
 
             if (supabaseError) {
+                console.error('Supabase Insert Error:', supabaseError);
                 throw new Error(supabaseError.message || 'Failed to save to database');
             }
 
-            // 2. Send email notification via API (only works locally, skipped on GitHub Pages)
+            console.log('Database save successful');
+
+            // 2. Send email notification via API (only works locally or on server-side hosts like Vercel)
             const isLocal = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+
+            // On GitHub Pages, /api/contact will not exist, so we skip it to avoid "Failed to fetch"
             if (isLocal) {
                 try {
-                    await fetch('/api/contact', {
+                    const response = await fetch('/api/contact', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({ name, email, company, message }),
                     });
-                } catch {
+
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        console.warn('Email API returned an error:', errorData);
+                    } else {
+                        console.log('Email notification sent');
+                    }
+                } catch (fetchError: any) {
                     // Email notification failure is non-fatal — DB save already succeeded
-                    console.warn('Email notification skipped (API not available)');
+                    console.warn('Email notification failed (Expected on GitHub Pages):', fetchError.message);
                 }
+            } else {
+                console.log('Skipping email API call on live site (Static Hosting handles DB only)');
             }
 
             setSubmitted(true);
         } catch (err: any) {
+            console.error('Submission error:', err);
             setError(err.message || 'Failed to send message. Please try again.');
         } finally {
             setLoading(false);

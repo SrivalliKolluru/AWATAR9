@@ -3,8 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
 import SectionWrapper from '@/components/ui/SectionWrapper';
-import { supabase } from '@/lib/supabase';
-import styles from './ContactCTA.module.css';
+import styles from './ContactCTA.module.css'; // Assuming styles are imported from here
 
 export default function ContactCTA() {
     const [submitted, setSubmitted] = useState(false);
@@ -25,52 +24,18 @@ export default function ContactCTA() {
         try {
             console.log('Sending form data...', { name, email, company, message });
 
-            // 1. Save directly to Supabase
-            if (!supabase) {
-                const isGitHubPages = typeof window !== 'undefined' && window.location.hostname.includes('github.io');
-                const errorMessage = isGitHubPages
-                    ? 'Database not configured. Please ensure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are set in GitHub Secrets.'
-                    : 'Database not configured. Please check your .env.local file and restart the dev server.';
-                throw new Error(errorMessage);
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, company, message }),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.details || errorData.error || 'Failed to send message');
             }
 
-            const { error: supabaseError } = await supabase
-                .from('contacts')
-                .insert([{ name, email, company, message }]);
-
-            if (supabaseError) {
-                console.error('Supabase Insert Error:', supabaseError);
-                throw new Error(supabaseError.message || 'Failed to save to database');
-            }
-
-            console.log('Database save successful');
-
-            // 2. Send email notification via API (only works locally or on server-side hosts like Vercel)
-            const isLocal = typeof window !== 'undefined' && window.location.hostname === 'localhost';
-
-            // On GitHub Pages, /api/contact will not exist, so we skip it to avoid "Failed to fetch"
-            if (isLocal) {
-                try {
-                    const response = await fetch('/api/contact', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ name, email, company, message }),
-                    });
-
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        console.warn('Email API returned an error:', errorData);
-                    } else {
-                        console.log('Email notification sent');
-                    }
-                } catch (fetchError: any) {
-                    // Email notification failure is non-fatal — DB save already succeeded
-                    console.warn('Email notification failed (Expected on GitHub Pages):', fetchError.message);
-                }
-            } else {
-                console.log('Skipping email API call on live site (Static Hosting handles DB only)');
-            }
-
+            console.log('Email notification sent successfully');
             setSubmitted(true);
         } catch (err: any) {
             console.error('Submission error:', err);

@@ -4,6 +4,7 @@
 
 const isProd = process.env.NODE_ENV === 'production';
 export const BASE_PATH = isProd ? '/AWATAR9' : '';
+export const FORM_ACCESS_KEY = '57ae3f0c-b472-4d2d-88f6-953e1e907a90'; // Web3Forms Key for agents@awatar9.com
 
 export const SITE = {
     name: 'AWATAR9',

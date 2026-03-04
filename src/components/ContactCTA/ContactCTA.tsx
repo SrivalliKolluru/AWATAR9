@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { Send, CheckCircle } from 'lucide-react';
 import SectionWrapper from '@/components/ui/SectionWrapper';
+import { FORM_ACCESS_KEY } from '@/lib/constants';
 import styles from './ContactCTA.module.css'; // Assuming styles are imported from here
 
 export default function ContactCTA() {
@@ -22,15 +23,21 @@ export default function ContactCTA() {
         const message = formData.get('message') as string;
 
         try {
-            console.log('Sending form data...', { name, email, company, message });
+            console.log('Sending form data via Web3Forms...', { name, email, company, message });
 
-            const response = await fetch('https://formspree.io/f/srivallikolluru4@gmail.com', {
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({ name, email, company, message }),
+                body: JSON.stringify({
+                    access_key: FORM_ACCESS_KEY,
+                    name,
+                    email,
+                    company,
+                    message
+                }),
             });
 
             if (!response.ok) {

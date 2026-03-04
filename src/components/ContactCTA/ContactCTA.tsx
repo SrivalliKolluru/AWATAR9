@@ -24,7 +24,7 @@ export default function ContactCTA() {
         try {
             console.log('Sending form data...', { name, email, company, message });
 
-            const response = await fetch('https://formspree.io/f/agents@awatar9.com', {
+            const response = await fetch('https://formspree.io/f/srivallikolluru4@gmail.com', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, company, message }),

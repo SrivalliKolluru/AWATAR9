@@ -6,7 +6,6 @@ const BASE_PATH = isProd ? '/AWATAR9' : '';
 const nextConfig = {
     output: 'export',
     basePath: isProd ? '/AWATAR9' : '',
-    assetPrefix: isProd ? '/AWATAR9' : '',
     images: {
         unoptimized: true,
     },

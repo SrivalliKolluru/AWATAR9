@@ -2,7 +2,8 @@
 // AWATAR9 — Content Constants & Data
 // ============================================
 
-export const BASE_PATH = '';
+const isProd = process.env.NODE_ENV === 'production';
+export const BASE_PATH = isProd ? '/AWATAR9' : '';
 
 export const SITE = {
     name: 'AWATAR9',

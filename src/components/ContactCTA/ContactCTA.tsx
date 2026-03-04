@@ -23,7 +23,17 @@ export default function ContactCTA() {
         const message = formData.get('message') as string;
 
         try {
-            console.log('Sending form data via Web3Forms...', { name, email, company, message });
+            console.log('Sending form data via Web3Forms...');
+
+            const formDataObj = {
+                access_key: FORM_ACCESS_KEY,
+                name,
+                email,
+                company,
+                message,
+                subject: `New Message from ${name} via AWATAR9`,
+                from_name: 'AWATAR9 Contact Form'
+            };
 
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
@@ -31,21 +41,17 @@ export default function ContactCTA() {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({
-                    access_key: FORM_ACCESS_KEY,
-                    name,
-                    email,
-                    company,
-                    message
-                }),
+                body: JSON.stringify(formDataObj),
             });
 
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.details || errorData.error || 'Failed to send message');
+            const result = await response.json();
+
+            if (!response.ok || !result.success) {
+                console.error('Web3Forms Error:', result);
+                throw new Error(result.message || 'Failed to send message');
             }
 
-            console.log('Email notification sent successfully');
+            console.log('Message sent successfully:', result);
             setSubmitted(true);
         } catch (err: any) {
             console.error('Submission error:', err);

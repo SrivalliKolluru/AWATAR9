@@ -36,7 +36,7 @@ export default function Hero() {
                     custom={1}
                     variants={fadeUp}
                 >
-                    We Build <span className="gradient-text">AI Agents(Digital Workers)</span> for you
+                    We Build <span className="gradient-text">AI Agents</span> for you
                 </motion.h1>
 
                 <motion.div

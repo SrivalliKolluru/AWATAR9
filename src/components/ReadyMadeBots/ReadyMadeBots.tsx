@@ -1,6 +1,7 @@
 'use client';
 
 import { Target, Users, TrendingUp, Database, Settings, Search, Headphones } from 'lucide-react';
+import Link from 'next/link';
 import { BOT_CATEGORIES } from '@/lib/constants';
 import SectionWrapper from '@/components/ui/SectionWrapper';
 import styles from './ReadyMadeBots.module.css';
@@ -28,20 +29,41 @@ export default function ReadyMadeBots() {
             </div>
 
             <div className={styles.grid}>
-                {BOT_CATEGORIES.map((bot) => (
-                    <div key={bot.title} className={`glass-card ${styles.card}`}>
-                        <div
-                            className={styles.cardIcon}
-                            style={{
-                                color: bot.color
-                            } as React.CSSProperties}
+                {BOT_CATEGORIES.map((bot) => {
+                    const CardContent = (
+                        <>
+                            <div
+                                className={styles.cardIcon}
+                                style={{
+                                    color: bot.color
+                                } as React.CSSProperties}
+                            >
+                                {iconMap[bot.icon]}
+                            </div>
+                            <h3 className={styles.cardTitle}>{bot.title}</h3>
+                            <p className={styles.cardDescription}>{bot.description}</p>
+                            {bot.href && (
+                                <div className={styles.exploreMore}>
+                                    Explore Solution →
+                                </div>
+                            )}
+                        </>
+                    );
+
+                    return bot.href ? (
+                        <Link
+                            key={bot.title}
+                            href={bot.href}
+                            className={`glass-card ${styles.card} ${styles.clickableCard}`}
                         >
-                            {iconMap[bot.icon]}
+                            {CardContent}
+                        </Link>
+                    ) : (
+                        <div key={bot.title} className={`glass-card ${styles.card}`}>
+                            {CardContent}
                         </div>
-                        <h3 className={styles.cardTitle}>{bot.title}</h3>
-                        <p className={styles.cardDescription}>{bot.description}</p>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
 
             <div className={styles.emphasis}>

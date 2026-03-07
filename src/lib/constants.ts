@@ -27,6 +27,7 @@ export interface BotCategory {
     description: string;
     icon: string;
     color: string;
+    href?: string;
 }
 
 export const BOT_CATEGORIES: BotCategory[] = [
@@ -59,6 +60,7 @@ export const BOT_CATEGORIES: BotCategory[] = [
         description: 'Keep your CRM updated, trigger workflows, and never miss a follow-up',
         icon: 'Settings',
         color: '#c77dff',
+        href: '/solutions/crm-automation',
     },
     {
         title: 'Research Assistants',

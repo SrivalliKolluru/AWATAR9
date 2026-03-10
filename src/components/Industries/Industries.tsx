@@ -21,9 +21,7 @@ export default function Industries() {
                 ))}
             </div>
 
-            <p className={styles.tagline}>
-                we build AI that fits your scale
-            </p>
+
         </SectionWrapper>
     );
 }

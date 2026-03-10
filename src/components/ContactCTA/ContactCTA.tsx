@@ -40,16 +40,19 @@ export default function ContactCTA() {
         // --------------------------------
 
         try {
-            console.log('Sending form data via Resend...');
+            console.log('Sending form data via Web3Forms...');
 
             const formDataObj = {
+                access_key: FORM_ACCESS_KEY,
                 name,
                 email,
                 company,
                 message,
+                subject: `New Message from ${name} via AWATAR9`,
+                from_name: 'AWATAR9 Contact Form'
             };
 
-            const response = await fetch('/api/contact', {
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -60,9 +63,9 @@ export default function ContactCTA() {
 
             const result = await response.json();
 
-            if (!response.ok) {
-                console.error('API Error:', result);
-                throw new Error(result.error || result.details || 'Failed to send message');
+            if (!response.ok || !result.success) {
+                console.error('Web3Forms Error:', result);
+                throw new Error(result.message || 'Failed to send message');
             }
 
             console.log('Message sent successfully:', result);

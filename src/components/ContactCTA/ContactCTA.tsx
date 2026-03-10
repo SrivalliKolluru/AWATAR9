@@ -40,7 +40,7 @@ export default function ContactCTA() {
         // --------------------------------
 
         try {
-            console.log('Sending form data via Web3Forms...');
+            console.log('Sending form data via Resend...');
 
             const formDataObj = {
                 name,

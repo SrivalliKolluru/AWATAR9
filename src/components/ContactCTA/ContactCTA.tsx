@@ -82,41 +82,60 @@ export default function ContactCTA() {
                 ) : (
                     <form className={styles.form} onSubmit={handleSubmit}>
                         <div className={styles.inputGroup}>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', flex: 1 }}>
+                                <label htmlFor="contact-name" style={{ fontSize: '0.82rem', color: '#a0aec0', fontWeight: 500 }}>
+                                    Your Name <span style={{ color: '#f56565' }}>*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    className={styles.input}
+                                    placeholder="Your Name"
+                                    required
+                                    name="name"
+                                    id="contact-name"
+                                />
+                            </div>
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', flex: 1 }}>
+                                <label htmlFor="contact-email" style={{ fontSize: '0.82rem', color: '#a0aec0', fontWeight: 500 }}>
+                                    Your Email <span style={{ color: '#f56565' }}>*</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    className={styles.input}
+                                    placeholder="Your Email"
+                                    required
+                                    name="email"
+                                    id="contact-email"
+                                />
+                            </div>
+                        </div>
+
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: '1rem' }}>
+                            <label htmlFor="contact-company" style={{ fontSize: '0.82rem', color: '#a0aec0', fontWeight: 500 }}>
+                                Company Name <span style={{ color: '#f56565' }}>*</span>
+                            </label>
                             <input
                                 type="text"
                                 className={styles.input}
-                                placeholder="Your Name"
+                                placeholder="Company Name"
+                                name="company"
+                                id="contact-company"
                                 required
-                                name="name"
-                                id="contact-name"
-                            />
-                            <input
-                                type="email"
-                                className={styles.input}
-                                placeholder="Your Email"
-                                required
-                                name="email"
-                                id="contact-email"
                             />
                         </div>
 
-                        <input
-                            type="text"
-                            className={styles.input}
-                            placeholder="Company Name"
-                            name="company"
-                            id="contact-company"
-                            style={{ marginTop: '1rem' }}
-                        />
-
-                        <textarea
-                            className={`${styles.input} ${styles.textarea}`}
-                            placeholder="Tell us about your project or challenge..."
-                            required
-                            name="message"
-                            id="contact-message"
-                            style={{ marginTop: '1rem' }}
-                        />
+                        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginTop: '1rem' }}>
+                            <label htmlFor="contact-message" style={{ fontSize: '0.82rem', color: '#a0aec0', fontWeight: 500 }}>
+                                Message <span style={{ color: '#f56565' }}>*</span>
+                            </label>
+                            <textarea
+                                className={`${styles.input} ${styles.textarea}`}
+                                placeholder="Tell us about your project or challenge..."
+                                required
+                                name="message"
+                                id="contact-message"
+                            />
+                        </div>
                         {error && <p className={styles.errorMessage}>{error}</p>}
                         <button
                             type="submit"

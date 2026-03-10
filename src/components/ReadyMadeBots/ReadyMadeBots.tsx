@@ -25,7 +25,7 @@ export default function ReadyMadeBots() {
                 <h2 className="section-title">AI Agents that We Built for Others</h2>
                 <p className={styles.tagline}>
                     Not one-size-fits-all AI We have already built powerful AI bots for common
-                    business needs These ready-made bots can be quickly deployed for your workflow
+                    business needs <br /> These ready-made bots can be quickly deployed for your workflow
                 </p>
             </div>
 

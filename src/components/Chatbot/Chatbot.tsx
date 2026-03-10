@@ -168,10 +168,8 @@ export default function Chatbot() {
                 className={`${styles.message} ${
                   msg.type === 'user' ? styles.user : styles.bot
                 }`}
-                dangerouslySetInnerHTML={msg.isHTML ? { __html: msg.text } : undefined}
-              >
-                {!msg.isHTML && msg.text}
-              </div>
+                {...(msg.isHTML ? { dangerouslySetInnerHTML: { __html: msg.text } } : { children: msg.text })}
+              />
             ))}
             <div ref={messagesEndRef} />
           </div>

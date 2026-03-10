@@ -40,7 +40,6 @@ export default function ContactCTA() {
         // --------------------------------
 
         try {
-        try {
             console.log('Sending form data via Google Apps Script...');
 
             const formDataObj = {

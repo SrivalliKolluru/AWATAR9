@@ -65,15 +65,6 @@ export default function ContactCTA() {
             console.log('Message sent successfully:', result);
             setSubmitted(true);
         } catch (err: any) {
-
-            if (!response.ok || !result.success) {
-                console.error('Web3Forms Error:', result);
-                throw new Error(result.message || 'Failed to send message');
-            }
-
-            console.log('Message sent successfully:', result);
-            setSubmitted(true);
-        } catch (err: any) {
             console.error('Submission error:', err);
             setError(err.message || 'Failed to send message. Please try again.');
         } finally {

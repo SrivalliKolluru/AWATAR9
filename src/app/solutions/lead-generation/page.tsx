@@ -12,7 +12,7 @@ export default function LeadGenerationPage() {
             <SectionWrapper id="lead-generation">
                 <div style={{ marginBottom: '40px' }}>
                     <Link 
-                        href={`${BASE_PATH}/#solutions`} 
+                        href="/#solutions" 
                         style={{ 
                             display: 'flex', 
                             alignItems: 'center', 

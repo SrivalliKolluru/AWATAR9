@@ -11,7 +11,7 @@ export default function CRMAutomationPage() {
         <main className={styles.main}>
             <SectionWrapper id="crm-automation">
                 <div className={styles.header}>
-                    <Link href={`${BASE_PATH}/#solutions`} className={styles.backLink}>
+                    <Link href="/#solutions" className={styles.backLink}>
                         <ArrowLeft size={20} />
                         <span>Back to Solutions</span>
                     </Link>

@@ -3,6 +3,7 @@
 import { ArrowLeft, Play, Settings, Shield, Zap } from 'lucide-react';
 import Link from 'next/link';
 import SectionWrapper from '@/components/ui/SectionWrapper';
+import { BASE_PATH } from '@/lib/constants';
 import styles from './page.module.css';
 
 export default function CRMAutomationPage() {
@@ -10,7 +11,7 @@ export default function CRMAutomationPage() {
         <main className={styles.main}>
             <SectionWrapper id="crm-automation">
                 <div className={styles.header}>
-                    <Link href="/#solutions" className={styles.backLink}>
+                    <Link href={`${BASE_PATH}/#solutions`} className={styles.backLink}>
                         <ArrowLeft size={20} />
                         <span>Back to Solutions</span>
                     </Link>
@@ -27,7 +28,7 @@ export default function CRMAutomationPage() {
                     <div className={`glass-card ${styles.videoWrapper}`}>
                         <video
                             className={styles.video}
-                            src="/videos/crm-automation.mp4"
+                            src={`${BASE_PATH}/videos/crm-automation.mp4`}
                             controls
                             autoPlay
                             muted

@@ -3,6 +3,7 @@
 import { ArrowLeft, Play, Target, Users, Zap } from 'lucide-react';
 import Link from 'next/link';
 import SectionWrapper from '@/components/ui/SectionWrapper';
+import { BASE_PATH } from '@/lib/constants';
 import styles from '../crm-automation/page.module.css';
 
 export default function LeadGenerationPage() {
@@ -11,7 +12,7 @@ export default function LeadGenerationPage() {
             <SectionWrapper id="lead-generation">
                 <div style={{ marginBottom: '40px' }}>
                     <Link 
-                        href="/#solutions" 
+                        href={`${BASE_PATH}/#solutions`} 
                         style={{ 
                             display: 'flex', 
                             alignItems: 'center', 
@@ -50,7 +51,7 @@ export default function LeadGenerationPage() {
                     }}>
                         <video
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            src="/videos/lead-generation.mp4"
+                            src={`${BASE_PATH}/videos/lead-generation.mp4`}
                             controls
                             autoPlay
                             muted

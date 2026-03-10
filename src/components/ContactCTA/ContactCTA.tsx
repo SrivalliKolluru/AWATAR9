@@ -40,28 +40,31 @@ export default function ContactCTA() {
         // --------------------------------
 
         try {
-            console.log('Sending form data via Web3Forms...');
+        try {
+            console.log('Sending form data via Google Apps Script...');
 
             const formDataObj = {
-                access_key: FORM_ACCESS_KEY,
                 name,
                 email,
                 company,
                 message,
-                subject: `New Message from ${name} via AWATAR9`,
-                from_name: 'AWATAR9 Contact Form'
             };
 
-            const response = await fetch('https://api.web3forms.com/submit', {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbwoFLUw7pz_FY0IVGGnSwwWXbUPlJlfKhFSc9TJ9db74P43ibWCW73imPQlZWFpTvu6/exec', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
                 body: JSON.stringify(formDataObj),
             });
 
             const result = await response.json();
+
+            if (result.error || result.status === 'failed') {
+                console.error('Google Sheets Error:', result);
+                throw new Error('Failed to save message to Google Sheets');
+            }
+
+            console.log('Message sent successfully:', result);
+            setSubmitted(true);
+        } catch (err: any) {
 
             if (!response.ok || !result.success) {
                 console.error('Web3Forms Error:', result);

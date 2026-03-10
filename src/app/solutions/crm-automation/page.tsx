@@ -11,8 +11,21 @@ export default function CRMAutomationPage() {
         <main className={styles.main}>
             <SectionWrapper id="crm-automation">
                 <div className={styles.header}>
-                    <Link href="/#solutions" className={styles.backLink}>
-                        <ArrowLeft size={20} />
+                    <Link 
+                        href="/#solutions" 
+                        style={{ 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            gap: '12px', 
+                            color: 'var(--color-text-dim)', 
+                            textDecoration: 'none',
+                            fontSize: '18px',
+                            fontWeight: '600',
+                            transition: 'all 0.2s',
+                            width: 'fit-content'
+                        }}
+                    >
+                        <ArrowLeft size={24} />
                         <span>Back to Solutions</span>
                     </Link>
                     <div className={styles.titleContainer}>
@@ -37,36 +50,31 @@ export default function CRMAutomationPage() {
                         >
                             Your browser does not support the video tag.
                         </video>
-                        <div className={styles.videoOverlay}>
-                            <div className={styles.playBadge}>
-                                <Play fill="currentColor" size={24} />
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <div className={styles.featuresGrid}>
-                    <div className={`glass-card ${styles.featureCard}`}>
-                        <div className={styles.featureIcon} style={{ color: '#4dffb5' }}>
-                            <Zap size={24} />
-                        </div>
-                        <h3>Instant Response</h3>
-                        <p>Automatically update records as soon as events happen in your CRM.</p>
-                    </div>
-                    <div className={`glass-card ${styles.featureCard}`}>
-                        <div className={styles.featureIcon} style={{ color: '#6ea8ff' }}>
-                            <Settings size={24} />
-                        </div>
-                        <h3>Custom Workflows</h3>
-                        <p>Tailored automation that fits your specific business processes perfectly.</p>
-                    </div>
-                    <div className={`glass-card ${styles.featureCard}`}>
-                        <div className={styles.featureIcon} style={{ color: '#c77dff' }}>
-                            <Shield size={24} />
-                        </div>
-                        <h3>Data Accuracy</h3>
-                        <p>Reduce human error by letting AI handle data entry and synchronization.</p>
-                    </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+                    <Link 
+                        href="/#contact"
+                        className="cta-button"
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                            padding: '16px 32px',
+                            fontSize: '18px',
+                            fontWeight: 'bold',
+                            borderRadius: '50px',
+                            background: 'linear-gradient(135deg, #4dffb5, #00d4aa)',
+                            color: '#000',
+                            textDecoration: 'none',
+                            boxShadow: '0 8px 20px rgba(77, 255, 181, 0.3)',
+                            transition: 'transform 0.2s, box-shadow 0.2s'
+                        }}
+                    >
+                        <span>Learn More</span>
+                        <Zap size={20} />
+                    </Link>
                 </div>
             </SectionWrapper>
         </main>

@@ -49,7 +49,7 @@ export default function ContactCTA() {
                 message,
             };
 
-            const response = await fetch('https://script.google.com/macros/s/AKfycbwoFLUw7pz_FY0IVGGnSwwWXbUPlJlfKhFSc9TJ9db74P43ibWCW73imPQlZWFpTvu6/exec', {
+            const response = await fetch('https://script.google.com/macros/s/AKfycbyGkYgwNc0X3cZA8umwpSzJ7fb1PYowk4RHUGCxK2tkTRJWBF_RELeK2goMkp06TQxi/exec', {
                 method: 'POST',
                 body: JSON.stringify(formDataObj),
             });

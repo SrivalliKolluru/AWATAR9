@@ -135,7 +135,7 @@ export const INDUSTRIES = [
 ] as const;
 
 export const WHY_CHOOSE = [
-    { text: 'Business-focused AI', icon: 'Briefcase', color: '#4dffb5' },
+    { text: 'Business-focused AI Agents', icon: 'Briefcase', color: '#4dffb5' },
     { text: 'Custom-Built Intelligence', icon: 'Package', color: '#6ea8ff' },
     { text: 'Fast deployment', icon: 'Rocket', color: '#ffd93d' },
     { text: 'Modern technology', icon: 'Cpu', color: '#c77dff' },

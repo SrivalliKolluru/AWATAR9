@@ -16,14 +16,18 @@ export default function LeadGenerationPage() {
                         style={{ 
                             display: 'flex', 
                             alignItems: 'center', 
-                            gap: '8px', 
+                            gap: '12px', 
                             color: 'var(--color-text-dim)', 
                             textDecoration: 'none',
-                            fontSize: '14px',
-                            transition: 'color 0.2s'
+                            fontSize: '18px',
+                            fontWeight: '600',
+                            transition: 'all 0.2s',
+                            width: 'fit-content'
                         }}
+                        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary)'}
+                        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-text-dim)'}
                     >
-                        <ArrowLeft size={20} />
+                        <ArrowLeft size={24} />
                         <span>Back to Solutions</span>
                     </Link>
                     <div style={{ marginTop: '24px' }}>
@@ -41,7 +45,7 @@ export default function LeadGenerationPage() {
                     </div>
                 </div>
 
-                <div style={{ position: 'relative', width: '100%', marginBottom: '60px' }}>
+                <div style={{ position: 'relative', width: '100%', marginBottom: '40px' }}>
                     <div className="glass-card" style={{ 
                         borderRadius: '24px', 
                         overflow: 'hidden', 
@@ -63,38 +67,28 @@ export default function LeadGenerationPage() {
                     </div>
                 </div>
 
-                <div style={{ 
-                    display: 'grid', 
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-                    gap: '24px' 
-                }}>
-                    <div className="glass-card" style={{ padding: '32px', borderRadius: '20px' }}>
-                        <div style={{ color: '#ff6b6b', marginBottom: '20px' }}>
-                            <Target size={24} />
-                        </div>
-                        <h3 style={{ fontSize: '20px', marginBottom: '12px' }}>Smart Prospecting</h3>
-                        <p style={{ color: 'var(--color-text-dim)', lineHeight: '1.6' }}>
-                            AI-driven search to identify prospects that perfectly match your Ideal Customer Profile.
-                        </p>
-                    </div>
-                    <div className="glass-card" style={{ padding: '32px', borderRadius: '20px' }}>
-                        <div style={{ color: '#4dffb5', marginBottom: '20px' }}>
-                            <Users size={24} />
-                        </div>
-                        <h3 style={{ fontSize: '20px', marginBottom: '12px' }}>Automated Outreach</h3>
-                        <p style={{ color: 'var(--color-text-dim)', lineHeight: '1.6' }}>
-                            Personalized initial contact and follow-ups across multiple channels automatically.
-                        </p>
-                    </div>
-                    <div className="glass-card" style={{ padding: '32px', borderRadius: '20px' }}>
-                        <div style={{ color: '#6ea8ff', marginBottom: '20px' }}>
-                            <Zap size={24} />
-                        </div>
-                        <h3 style={{ fontSize: '20px', marginBottom: '12px' }}>Instant Qualification</h3>
-                        <p style={{ color: 'var(--color-text-dim)', lineHeight: '1.6' }}>
-                            Real-time lead scoring and qualification so your team only talks to ready-to-buy prospects.
-                        </p>
-                    </div>
+                <div style={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+                    <Link 
+                        href="/#contact"
+                        className="cta-button"
+                        style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                            padding: '16px 32px',
+                            fontSize: '18px',
+                            fontWeight: 'bold',
+                            borderRadius: '50px',
+                            background: 'linear-gradient(135deg, #4dffb5, #00d4aa)',
+                            color: '#000',
+                            textDecoration: 'none',
+                            boxShadow: '0 8px 20px rgba(77, 255, 181, 0.3)',
+                            transition: 'transform 0.2s, box-shadow 0.2s'
+                        }}
+                    >
+                        <span>Learn More</span>
+                        <Zap size={20} />
+                    </Link>
                 </div>
             </SectionWrapper>
         </main>

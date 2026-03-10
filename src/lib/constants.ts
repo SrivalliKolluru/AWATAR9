@@ -36,6 +36,7 @@ export const BOT_CATEGORIES: BotCategory[] = [
         description: 'Automate prospecting and generate high-quality leads around the clock',
         icon: 'Target',
         color: '#ff6b6b',
+        href: '/solutions/lead-generation',
     },
     {
         title: 'Recruitment Agents',

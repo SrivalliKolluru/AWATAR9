@@ -15,10 +15,10 @@ export const SITE = {
 } as const;
 
 export const NAV_LINKS = [
-    { label: 'Home', href: '#hero' },
-    { label: 'Solutions', href: '#solutions' },
-    { label: 'Custom AI', href: '#custom-ai' },
-    { label: 'Technology', href: '#technology' },
+    { label: 'Home', href: '/#hero' },
+    { label: 'Solutions', href: '/#solutions' },
+    { label: 'Custom AI', href: '/#custom-ai' },
+    { label: 'Technology', href: '/#technology' },
 
 ] as const;
 

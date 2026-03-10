@@ -33,13 +33,13 @@ export interface BotCategory {
 export const BOT_CATEGORIES: BotCategory[] = [
     {
         title: 'Lead Generation Agents',
-        description: 'Automate prospecting and capture high-quality leads around the clock',
+        description: 'Automate prospecting and generate high-quality leads around the clock',
         icon: 'Target',
         color: '#ff6b6b',
     },
     {
         title: 'Recruitment Agents',
-        description: 'Screen candidates, schedule interviews, and streamline your hiring pipeline',
+        description: 'Identifies right title candidates for the position',
         icon: 'Users',
         color: '#4dffb5',
     },
@@ -73,6 +73,12 @@ export const BOT_CATEGORIES: BotCategory[] = [
         description: 'Instant, intelligent responses — 24/7 support without the overhead',
         icon: 'Headphones',
         color: '#00d4aa',
+    },
+    {
+        title: 'Any Custom Agents that suits you',
+        description: "Tell us your workflow — we'll build a tailored AI agent for your exact needs",
+        icon: 'ShieldPlus',
+        color: '#4dffb5',
     },
 ];
 

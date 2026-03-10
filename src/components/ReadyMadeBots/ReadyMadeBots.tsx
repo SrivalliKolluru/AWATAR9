@@ -1,6 +1,6 @@
 'use client';
 
-import { Target, Users, TrendingUp, Database, Settings, Search, Headphones } from 'lucide-react';
+import { Target, Users, TrendingUp, Database, Settings, Search, Headphones, ShieldPlus } from 'lucide-react';
 import Link from 'next/link';
 import { BOT_CATEGORIES } from '@/lib/constants';
 import SectionWrapper from '@/components/ui/SectionWrapper';
@@ -14,6 +14,7 @@ const iconMap: Record<string, React.ReactNode> = {
     Settings: <Settings size={24} />,
     Search: <Search size={24} />,
     Headphones: <Headphones size={24} />,
+    ShieldPlus: <ShieldPlus size={24} />,
 };
 
 export default function ReadyMadeBots() {
@@ -21,7 +22,7 @@ export default function ReadyMadeBots() {
         <SectionWrapper id="solutions">
             <div className={styles.sectionHeader}>
                 <div className="section-label">✦ Ready-Made Solutions</div>
-                <h2 className="section-title">Ready-Made AI Bots Customized for You</h2>
+                <h2 className="section-title">AI Agents that We Built for Others</h2>
                 <p className={styles.tagline}>
                     Not one-size-fits-all AI We have already built powerful AI bots for common
                     business needs These ready-made bots can be quickly deployed for your workflow

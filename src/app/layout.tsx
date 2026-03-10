@@ -19,7 +19,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
     title: 'AWATAR9 — Designing AI That Delivers',
     description:
-        'At AWATAR9, we design smart AI agents for real business challenges. Ready-made and custom AI bots that think, act, and deliver results.',
+        'At AWATAR9, we Bulid AI Agents to assist you in Automating your repetitive tasks. Ready-made and custom AI bots that think, act, and deliver results.',
     keywords: [
         'Srivalli AI agents',
         'AI automation',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'AWATAR9 — Designing AI That Delivers',
         description:
-            'We build AI that works for you. Ready-made and custom AI solutions for real business challenges.',
+            'We Build AI Agents That Works For You. Ready-made and custom AI solutions for real business challenges.',
         url: 'https://SrivalliKolluru.github.io/AWATAR9',
         siteName: 'AWATAR9',
         type: 'website',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'AWATAR9 — Designing AI That Delivers',
         description:
-            'We build AI that works for you. Ready-made and custom AI solutions for real business challenges.',
+            'We Build AI Agents That Works For You. Ready-made and custom AI solutions for real business challenges.',
     },
     robots: {
         index: true,

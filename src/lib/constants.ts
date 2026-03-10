@@ -10,7 +10,7 @@ export const SITE = {
     name: 'AWATAR9',
     tagline: 'Designing AI That Delivers',
     description:
-        'At AWATAR9, we design smart AI agents for real business challenges Ready-made and custom AI bots that think, act, and deliver results',
+        'At AWATAR9, we Bulid AI Agents to assist you in Automating your repetitive tasks Ready-made and custom AI bots that think, act, and deliver results',
     url: 'https://awatar9.com',
 } as const;
 

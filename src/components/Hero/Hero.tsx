@@ -36,7 +36,7 @@ export default function Hero() {
                     custom={1}
                     variants={fadeUp}
                 >
-                    We Build <span className="gradient-text">AI Agents</span> for you
+                    We Build <span className="gradient-text">AI Agents</span> That Works For You
                 </motion.h1>
 
                 <motion.div
@@ -46,7 +46,7 @@ export default function Hero() {
                     custom={2}
                     variants={fadeUp}
                 >
-                    <span>At AWATAR9, we design smart AI agents for real business challenges</span>
+                    <span>At AWATAR9, we Bulid AI Agents to assist you in Automating your repetitive tasks</span>
                     <span>Our bots don&apos;t just automate —</span>
                     <span className={styles.highlightRow}>They Think,</span>
                     <span className={styles.highlightRow}>They Act,</span>

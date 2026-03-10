@@ -94,7 +94,8 @@ export const CUSTOM_AI_STEPS: ProcessStep[] = [
     { step: 3, title: 'Build Your Agent', description: 'Development with modern AI stack and best practices' },
     { step: 4, title: 'Test Rigorously', description: 'Thorough testing to ensure reliability and accuracy' },
     { step: 5, title: 'Deploy It', description: 'Seamless deployment into your existing infrastructure' },
-    { step: 6, title: 'Maintain It', description: 'Ongoing support, monitoring, and optimization' },
+    { step: 6, title: 'Optimize', description: 'We improve performance, accuracy, and speed based on real usage' },
+    { step: 7, title: 'Transfer (Optional)', description: 'Documentation, training, and handover so your team can manage it' },
 ];
 
 export const TECH_STACK = [

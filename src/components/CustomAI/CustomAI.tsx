@@ -8,10 +8,13 @@ export default function CustomAI() {
     return (
         <SectionWrapper id="custom-ai" dark>
             <div className="section-label">✦ Custom Solutions</div>
-            <h2 className="section-title">Custom AI Built for Your Exact Business Need</h2>
+            <h2 className="section-title">Custom AI Agents to make you more efficient and productive</h2>
             <p className="section-subtitle">
-                Every business is different Every workflow is unique Every goal needs a
-                tailored AI solution If you have a specific challenge, we will build the answer
+                Every business is different. Every workflow is unique. Every goal needs a tailored AI solution.
+                If you have a specific challenge, we will build the answer.
+            </p>
+            <p className="section-subtitle" style={{ marginTop: '0.5rem', fontWeight: 600, color: '#4dffb5' }}>
+                How Do We Do?
             </p>
 
             <div className={styles.timeline}>

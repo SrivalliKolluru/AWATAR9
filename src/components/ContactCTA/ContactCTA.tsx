@@ -40,7 +40,7 @@ export default function ContactCTA() {
         // --------------------------------
 
         try {
-            console.log('Sending form data via Google Apps Script...');
+            console.log('Routing form data to Sheets and Email...');
 
             const formDataObj = {
                 name,
@@ -49,16 +49,40 @@ export default function ContactCTA() {
                 message,
             };
 
-            const response = await fetch('https://script.google.com/macros/s/AKfycbwoFLUw7pz_FY0IVGGnSwwWXbUPlJlfKhFSc9TJ9db74P43ibWCW73imPQlZWFpTvu6/exec', {
+            // 1. SILENT SAVE TO GOOGLE SHEETS
+            // We catch any Google Script errors (like the email permission failure)
+            // so it doesn't break the actual website submission, since the data IS being saved.
+            try {
+                await fetch('https://script.google.com/macros/s/AKfycbyGkYgwNc0X3cZA8umwpSzJ7fb1PYowk4RHUGCxK2tkTRJWBF_RELeK2goMkp06TQxi/exec', {
+                    method: 'POST',
+                    body: JSON.stringify(formDataObj),
+                });
+            } catch (sheetError) {
+                console.warn('Silent Google Sheets error ignored:', sheetError);
+            }
+
+            // 2. SEND THE ACTUAL EMAIL VIA WEB3FORMS
+            const web3FormsDataObj = {
+                access_key: FORM_ACCESS_KEY,
+                subject: `New Message from ${name} via AWATAR9`,
+                from_name: 'AWATAR9 Contact Form',
+                ...formDataObj
+            };
+
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
-                body: JSON.stringify(formDataObj),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(web3FormsDataObj),
             });
 
             const result = await response.json();
 
-            if (result.error || result.status === 'failed') {
-                console.error('Google Sheets Error:', result);
-                throw new Error('Failed to save message to Google Sheets');
+            if (!response.ok || !result.success) {
+                console.error('Web3Forms Error:', result);
+                throw new Error(result.message || 'Failed to send email notification');
             }
 
             console.log('Message sent successfully:', result);

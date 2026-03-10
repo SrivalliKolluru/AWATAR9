@@ -28,7 +28,7 @@ export default function CRMAutomationPage() {
                     <div className={`glass-card ${styles.videoWrapper}`}>
                         <video
                             className={styles.video}
-                            src={`${BASE_PATH}/videos/crm-automation.mp4`}
+                            src="../../videos/crm-automation.mp4"
                             controls
                             autoPlay
                             muted

@@ -51,7 +51,7 @@ export default function LeadGenerationPage() {
                     }}>
                         <video
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                            src={`${BASE_PATH}/videos/lead-generation.mp4`}
+                            src="../../videos/lead-generation.mp4"
                             controls
                             autoPlay
                             muted

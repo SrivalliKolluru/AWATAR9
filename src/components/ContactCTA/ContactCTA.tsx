@@ -22,6 +22,23 @@ export default function ContactCTA() {
         const company = formData.get('company') as string;
         const message = formData.get('message') as string;
 
+        // --- COMPANY EMAIL VALIDATION ---
+        const personalEmailDomains = [
+            'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com',
+            'aol.com', 'icloud.com', 'zoho.com', 'yandex.com', 'mail.com', 'protonmail.com'
+        ];
+
+        const emailParts = email.split('@');
+        if (emailParts.length === 2) {
+            const domain = emailParts[1].toLowerCase();
+            if (personalEmailDomains.includes(domain)) {
+                setError('Invalid Email. Please only enter valid company mail IDs.');
+                setLoading(false);
+                return; // Stop submission
+            }
+        }
+        // --------------------------------
+
         try {
             console.log('Sending form data via Web3Forms...');
 

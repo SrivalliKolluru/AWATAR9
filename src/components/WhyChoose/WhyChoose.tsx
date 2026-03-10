@@ -20,7 +20,7 @@ export default function WhyChoose() {
             <div className="section-label">✦ Why Us</div>
             <h2 className="section-title">Why Choose AWATAR9</h2>
             <p className="section-subtitle">
-                We don&apos;t just build bots We build long-term AI systems
+                We don&apos;t just build bots — we build long-term AI systems that grow with your business.
             </p>
 
             <div className={styles.grid}>
@@ -40,9 +40,7 @@ export default function WhyChoose() {
             </div>
 
             <p className={styles.tagline}>
-                We don&apos;t just build bots
-                <br />
-                We build long-term AI systems
+                Reliable. Scalable. Built to last.
             </p>
         </SectionWrapper>
     );

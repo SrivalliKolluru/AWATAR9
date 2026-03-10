@@ -18,9 +18,9 @@ export default function Achievements() {
     return (
         <SectionWrapper id="achievements" dark>
             <div className="section-label">✦ Results</div>
-            <h2 className="section-title">What We Help You Achieve</h2>
+            <h2 className="section-title">Benefits Of AI Agents</h2>
             <p className="section-subtitle">
-                With AWATAR9, your team focuses on strategy Our AI handles execution
+                With AWATAR9, your team focuses on strategy — our AI handles execution, so you can scale without limits.
             </p>
 
             <div className={styles.grid}>
@@ -40,9 +40,7 @@ export default function Achievements() {
             </div>
 
             <p className={styles.tagline}>
-                Your team focuses on strategy
-                <br />
-                Our AI handles execution
+                Less manual work. More meaningful results.
             </p>
         </SectionWrapper>
     );

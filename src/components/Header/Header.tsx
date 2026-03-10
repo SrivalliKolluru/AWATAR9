@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { NAV_LINKS, BASE_PATH } from '@/lib/constants';
 import styles from './Header.module.css';
 
@@ -21,7 +22,7 @@ export default function Header() {
         <>
             <header className={`${styles.header} ${scrolled ? styles.headerScrolled : ''}`}>
                 <div className={styles.headerInner}>
-                    <a href="#hero" className={styles.logo}>
+                    <Link href="/#hero" className={styles.logo}>
                         <div className={styles.logoIconWrapper}>
                             <Image
                                 src={`${BASE_PATH}/logo.png`}
@@ -36,17 +37,17 @@ export default function Header() {
                             AWATAR
                             <span className={styles.logoNumber}>9</span>
                         </span>
-                    </a>
+                    </Link>
 
                     <nav className={styles.nav}>
                         {NAV_LINKS.map((link) => (
-                            <a key={link.href} href={link.href} className={styles.navLink}>
+                            <Link key={link.href} href={link.href} className={styles.navLink}>
                                 {link.label}
-                            </a>
+                            </Link>
                         ))}
-                        <a href="#contact" className={styles.ctaButton}>
+                        <Link href="/#contact" className={styles.ctaButton}>
                             Let&apos;s Talk
-                        </a>
+                        </Link>
                     </nav>
 
                     <button
@@ -63,18 +64,18 @@ export default function Header() {
 
             <div className={`${styles.mobileNav} ${mobileOpen ? styles.open : ''}`}>
                 {NAV_LINKS.map((link) => (
-                    <a
+                    <Link
                         key={link.href}
                         href={link.href}
                         className={styles.mobileNavLink}
                         onClick={handleNavClick}
                     >
                         {link.label}
-                    </a>
+                    </Link>
                 ))}
-                <a href="#contact" className={styles.ctaButton} onClick={handleNavClick}>
+                <Link href="/#contact" className={styles.ctaButton} onClick={handleNavClick}>
                     Let&apos;s Talk
-                </a>
+                </Link>
             </div>
         </>
     );

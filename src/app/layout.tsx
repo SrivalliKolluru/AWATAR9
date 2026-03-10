@@ -3,6 +3,7 @@ import { Inter, Outfit } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import Chatbot from '@/components/Chatbot/Chatbot';
 
 const inter = Inter({
     subsets: ['latin'],
@@ -61,6 +62,7 @@ export default function RootLayout({
                 <Header />
                 <main>{children}</main>
                 <Footer />
+                <Chatbot />
             </body>
         </html>
     );
